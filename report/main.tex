@@ -1,0 +1,47 @@
+% =============================================================
+%  SWE-420 Internship Report — FlowGenX AI
+%  Author : Md. Rakibul Kabir
+%  Reg.   : 2020831051
+%  Dept.  : Software Engineering, IICT, SUST, Sylhet
+%  Period : 10 November 2025 -- 02 May 2026
+% =============================================================
+
+\documentclass[12pt,oneside]{report}
+\input{preamble}
+
+\begin{document}
+
+% --- Title page ---
+\include{chapters/titlepage}
+
+% --- Letters ---
+\include{extra/transmittal}
+\include{extra/endorsement}
+
+% --- Acknowledgement & Executive Summary ---
+\include{chapters/acknowledgement}
+\include{chapters/executive_summary}
+
+% --- Table of Contents and List of Figures ---
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+% --- Body chapters ---
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{chapters/introduction}
+\include{chapters/company_profile}
+\include{chapters/methodology}
+\include{chapters/internship_activities}
+\include{chapters/skills}
+\include{chapters/life}
+\include{chapters/conclusion}
+
+% --- References ---
+\include{chapters/references}
+
+\end{document}

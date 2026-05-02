@@ -1,0 +1,178 @@
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{Origin of the Report}
+The Bachelor of Science in Software Engineering programme offered by the
+Department of Software Engineering of the Institute of Information and
+Communication Technology (IICT), Shahjalal University of Science and
+Technology (SUST), requires every final-year student to complete a
+six-month industry internship under the course code \textbf{SWE--420}.
+The course is an eighteen-credit lab course that bridges the gap between
+classroom learning and real-world software engineering practice,
+exposing students to the technologies, processes, teams, and culture
+they will encounter as professionals.
+
+This report has been prepared as the formal academic deliverable of that
+internship. It documents my experience at \textbf{FlowGenX AI}, a
+Silicon Valley-based software development company building an agentic
+integration platform that combines multi-agent orchestration, low-code
+workflow design, and a large catalogue of native connectors. The
+document was prepared under the guidance of my academic department and
+the company's engineering leadership.
+
+\section{Objectives of the Report}
+The internship programme, and by extension this report, has both an
+academic and a personal objective. The specific goals I set for myself
+during the internship and that this report aims to demonstrate are:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Bridging theory and practice.} To translate the
+    theoretical concepts of software engineering acquired across seven
+    semesters --- programming languages, databases, software
+    architecture, software engineering principles --- into hands-on,
+    production-grade contributions on a real product.
+
+    \item \textbf{Learning industry-standard engineering practices.}
+    To work inside a disciplined feature-branch Git workflow, write
+    code that passes peer review, build and run automated test suites,
+    and contribute to a continuous integration pipeline used by paying
+    customers.
+
+    \item \textbf{Working on a meaningful, production-grade project.}
+    To take complete ownership of features --- in my case, end-to-end
+    connector development --- from API research and design through
+    implementation, testing, documentation, and live deployment.
+
+    \item \textbf{Developing depth in modern Generative AI engineering.}
+    To gain practical exposure to large language model providers, the
+    Model Context Protocol (MCP), Agent-to-Agent (A2A) communication,
+    Retrieval-Augmented Generation (RAG) knowledge bases, and the
+    workflow engines that compose these primitives into real
+    applications.
+
+    \item \textbf{Building professional non-technical skills.} To grow
+    as a remote-first engineer collaborating across time zones with a
+    globally distributed team, communicating clearly through text and
+    video, planning sprint work, raising blockers early, and giving
+    constructive code review to peers.
+
+    \item \textbf{Understanding modern startup engineering culture.}
+    To experience first-hand how a small, ambitious team builds a
+    serious product that competes with established platforms in the
+    integration space.
+
+    \item \textbf{Documenting the experience faithfully.} To produce a
+    report that honestly reflects the work, the learnings, and the
+    challenges of the internship --- so that it serves as both an
+    academic deliverable and a record I can return to in my own future.
+\end{enumerate}
+
+\section{Scope of the Report}
+This report describes the company, the engineering process, the
+projects I worked on, and the skills I acquired during my internship at
+FlowGenX AI between November 2025 and May 2026. Specifically, the
+report covers:
+
+\begin{itemize}[leftmargin=*]
+    \item An overview of the internship programme as it was structured
+    at FlowGenX AI: the team I was placed on, the supervisor and
+    teammates I worked with, the project I contributed to, and the
+    duration and weekly cadence of the work.
+
+    \item A profile of FlowGenX AI as an organisation --- its products,
+    its agentic platform architecture, its target market, the
+    technologies it uses, the office environment (including the
+    realities of remote work), and the company culture I experienced.
+
+    \item The software engineering methodology and process I followed
+    at the company: the development lifecycle, branching strategy,
+    code review and testing practices, the connector development
+    pipeline, and the tools used across version control, project
+    management, code quality, and deployment.
+
+    \item A detailed account of my actual contributions, organised in
+    two phases --- an initial onboarding and learning period followed
+    by sustained live project work on FlowGenX's
+    \texttt{runtime\_connectivity} project. This includes specific
+    connectors I designed and shipped, bugs I fixed, refactoring I
+    drove, and documentation I authored.
+
+    \item The technical and non-technical skills I acquired during the
+    internship and the personal reflections that came out of working
+    inside a remote-first global startup.
+\end{itemize}
+
+The report focuses only on what falls within the scope of an academic
+deliverable. It is not a technical specification of FlowGenX's product,
+nor an exhaustive engineering write-up of every commit; it is a faithful
+reflection of an intern's six-month journey inside the company.
+
+\section{Methodology}
+The information presented in this report has been compiled from
+multiple complementary sources to ensure both accuracy and personal
+authenticity:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Direct work experience.} The bulk of this report is
+    drawn directly from my five and a half months of full-time work
+    inside the company --- the projects I shipped, the meetings I
+    attended, the people I worked with, and the artefacts I produced.
+
+    \item \textbf{Version control history.} For Chapter~4 in particular,
+    I systematically reviewed my Git commit history on the
+    \texttt{runtime\_connectivity} repository to compile an accurate
+    timeline of what was delivered when, including branch names,
+    merged pull requests, and per-period focus areas.
+
+    \item \textbf{Internal repository documentation.} I referred to the
+    project's \texttt{README.md} and \texttt{CLAUDE.md} files (the
+    latter being the team's onboarding-and-conventions document for
+    AI-assisted code editors) to describe the engineering process,
+    architecture, and conventions accurately.
+
+    \item \textbf{Public-facing company materials.} Company background,
+    vision, product positioning, platform pillars, and use cases were
+    drawn from the company's public website
+    (\texttt{https://www.flowgenx.ai/}, including the \emph{About},
+    \emph{Platform}, \emph{Use Cases}, and \emph{FAQ} pages).
+
+    \item \textbf{Direct communication with company leadership.} For
+    factual gaps that the public website does not address (such as
+    employee count and team composition), I have where appropriate
+    reached out to the leadership team for confirmation rather than
+    speculate.
+\end{itemize}
+
+\section{Limitations}
+Although this report has been prepared with care, three limitations
+should be acknowledged upfront:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Confidentiality and intellectual property
+    constraints.} My internship offer letter establishes a strict
+    Intellectual Property and Confidentiality clause. As a result,
+    proprietary internal architecture, business logic, customer data,
+    pricing details, and unreleased product roadmap items have been
+    deliberately excluded from this report. Wherever such details are
+    relevant, only the publicly disclosed or genuinely non-sensitive
+    aspects are described.
+
+    \item \textbf{Personal vantage point.} The narrative is written
+    from my own perspective as an intern on a single team --- the
+    connectivity team --- working on a single project
+    (\texttt{runtime\_connectivity}). FlowGenX AI is a multi-team
+    organisation building a multi-product platform; my view of the
+    rest of the company is therefore second-hand and necessarily
+    incomplete.
+
+    \item \textbf{Remote-first nature of the engagement.} Because the
+    internship was fully remote, the chapter on \emph{Life at FlowGenX
+    AI} (Chapter~6) does not describe an in-office experience the way
+    a co-located internship would. It instead reflects what daily life
+    looks like as a remote engineer inside a globally distributed
+    team --- an experience that is increasingly common in the modern
+    software industry.
+\end{enumerate}
+
+Within these honest limitations, this report aims to be a complete and
+genuine reflection of my internship at FlowGenX AI.

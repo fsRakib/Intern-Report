@@ -1,0 +1,279 @@
+\chapter{Skills Acquired}
+\label{ch:skills}
+
+This chapter catalogues the skills I acquired during my internship at
+FlowGenX AI. They fall into two broad categories: technical skills,
+which I developed through the day-to-day work on the
+\texttt{runtime\_connectivity} project and the surrounding repositories,
+and non-technical skills, which I developed through working inside a
+remote-first, globally distributed engineering team.
+
+\section{Technical Skills}
+
+\subsection{Programming Languages}
+\paragraph{Python (Python 3.11+).}
+The primary language of the internship and the one I now use most
+fluently. Across five and a half months and 178 commits I wrote idiomatic,
+typed, async-aware Python: Pydantic models, decorators, context managers,
+generators, dataclasses, asyncio coroutines, pytest fixtures, and
+mocking patterns. Black, isort, Ruff, and pre-commit hooks made the
+``correct shape'' of clean Python second nature.
+
+\paragraph{SQL.}
+Daily exposure across PostgreSQL (the platform's metadata store as well
+as a connector), MySQL, Microsoft SQL Server, and several cloud
+managed-database variants (AWS RDS, Azure SQL). I wrote the standard
+range of CRUD, schema inspection, and bulk-write logic, plus the
+parameter standardisation work that unified how SQL connectors accept
+both DataFrames and raw lists of records.
+
+\paragraph{TypeScript and JavaScript.}
+Read-level fluency across the Next.js frontend and the Node.js-based
+tooling. While my own contributions were primarily backend, I
+regularly read frontend code to understand how the UI consumed the
+auth-config and OpenAPI metadata my connectors produced.
+
+\paragraph{Configuration languages.}
+JSON (heavy use, including hand-edited OpenAPI specs and
+configuration), YAML (CI configuration, Docker Compose, Kubernetes
+manifests), and TOML (\texttt{pyproject.toml} for the Python
+projects).
+
+\subsection{Frameworks and Libraries}
+\paragraph{FastAPI and Pydantic.}
+The pair sit at the centre of the platform's backend. I worked with
+FastAPI patterns through the runtime APIs and used Pydantic
+extensively to model connection parameters, request schemas, and
+response shapes for every connector.
+
+\paragraph{Apache Airflow.}
+The workflow engine underneath \texttt{runtime\_apis}. I learned how
+DAGs are defined, scheduled, and triggered, and how the connectors I
+shipped become callable nodes inside those DAGs.
+
+\paragraph{Pandas.}
+Used for in-memory DataFrame transformations in the database and file
+connectors --- and for the DataFrame/list duality I introduced into
+the SQL write methods.
+
+\paragraph{boto3 and the AWS SDK.}
+Used pervasively in the AWS connectors --- S3, RDS, Textract,
+Rekognition. I worked with boto3 paginators, signed-request flows,
+multipart uploads, asynchronous job patterns, and IAM credential
+handling.
+
+\paragraph{Other libraries.}
+\texttt{requests} and \texttt{httpx} for HTTP, \texttt{asyncio} for
+asynchronous code paths, \texttt{pytest} (with fixtures, mocks, and
+integration markers) for testing, and \texttt{Jinja2} as used by the
+runtime components for runtime-parameterised configuration.
+
+\subsection{Databases}
+Hands-on familiarity with a wide range of database backends through
+the connectors I built and tested:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Relational:} PostgreSQL, MySQL, Microsoft SQL
+    Server, Azure SQL Server, AWS RDS PostgreSQL, AWS RDS MySQL,
+    Snowflake.
+    \item \textbf{Document and NoSQL:} MongoDB.
+    \item \textbf{Search:} Elasticsearch, Typesense.
+    \item \textbf{Vector databases:} Pinecone, Weaviate, Milvus.
+\end{itemize}
+
+For each I learned the connection model, the authentication options,
+the standard CRUD shape, the pagination model, and the
+performance-relevant operations (bulk insert, upsert, truncate).
+
+\subsection{Cloud Platforms}
+\paragraph{Amazon Web Services.}
+Direct work with S3 (bucket policies, versioning, multipart uploads),
+RDS for both PostgreSQL and MySQL, Textract (sync and async document
+analysis with adapters), Rekognition (image, video, face, custom
+labels, stream processors), and IAM credential flows.
+
+\paragraph{Microsoft Azure.}
+Direct work with Blob Storage, Data Lake, and Azure SQL Server (with
+firewall-rule mode selection and retry logic).
+
+\paragraph{Google Cloud and Microsoft 365.}
+Connector-level work on Google Tasks, Google Forms, Google Chat,
+Google Meet, and Microsoft 365 (OneDrive and SharePoint).
+
+\subsection{AI / LLM Providers and Generative-AI Patterns}
+\paragraph{Provider connectors.}
+Built and tested connectors for OpenAI (assistants, models, threads),
+Anthropic (messages, batch, files, models, the Skills API), Google
+Gemini, xAI, Groq, DeepSeek, and Perplexity AI.
+
+\paragraph{Vector search and embeddings.}
+Built connectors for Pinecone, Weaviate, and Milvus, which gave me
+working familiarity with vector embeddings, similarity search,
+metadata filtering, and the role these systems play inside
+Retrieval-Augmented Generation (RAG) pipelines.
+
+\paragraph{Agentic patterns.}
+Working inside FlowGenX exposed me to the practical use of multi-agent
+patterns --- ReAct, Supervisor, Swarm, and Deep agent patterns ---
+and to the protocols underneath them: the \emph{Model Context
+Protocol (MCP)} for exposing tools to agents, and \emph{Agent-to-Agent
+(A2A)} communication for inter-agent collaboration.
+
+\subsection{Authentication Patterns}
+The connector work exposed me to every modern authentication pattern
+in production use:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{OAuth 2.0} with refresh-token flows (the most
+    important being the QuickBooks access-token refresh mechanism I
+    implemented).
+    \item \textbf{API Key} and \textbf{Bearer Token} authentication.
+    \item \textbf{HTTP Basic Authentication}.
+    \item \textbf{AWS IAM} credentials and signed-request flows.
+\end{itemize}
+
+\subsection{System Architecture and Concepts}
+\paragraph{Microservices architecture.}
+FlowGenX is composed of multiple cooperating services
+(\texttt{flowgenx-nextjs-V2}, \texttt{runtime\_apis},
+\texttt{runtime\_components}, \texttt{runtime\_connectivity}). Working
+inside this gave me a concrete intuition for service boundaries,
+package-level interfaces, and the discipline required to evolve a
+shared library without breaking its consumers.
+
+\paragraph{REST and OpenAPI 3.0.}
+Every connector method I wrote produced OpenAPI metadata via the
+\texttt{@openapi\_endpoint} decorator. By the end of the internship
+I could read and write OpenAPI 3.0 schemas fluently.
+
+\paragraph{Webhooks and event-driven patterns.}
+Implemented webhook configuration for connectors such as Apify and
+participated in the broader event-driven model of the FlowGenX
+runtime.
+
+\paragraph{gRPC.}
+Read-level exposure through the runtime APIs codebase.
+
+\paragraph{Containerisation and orchestration.}
+Worked with Docker for local development environments, observed the
+Kubernetes and Helm setup the platform uses for production
+orchestration, and read enough of the Terraform configuration to
+understand how infrastructure is provisioned.
+
+\paragraph{Caching and performance.}
+Direct exposure to caching patterns through the connector cleanup
+work and the SQL Server retry logic.
+
+\subsection{Testing}
+\paragraph{Unit and integration testing with pytest.}
+Wrote hundreds of pytest cases across the connectors I delivered,
+spanning fixtures, mocks, parameterised tests, and integration
+markers.
+
+\paragraph{Live-API integration testing.}
+Wrote a dedicated integration test script for every connector,
+producing a \textsc{PASS}/\textsc{FAIL}/\textsc{SKIP} report against
+real third-party APIs.
+
+\paragraph{End-to-end UI and workflow validation.}
+Validated every connector through the platform's API tester, MCP
+Playground, and end-to-end workflow execution.
+
+\subsection{Tooling and IDEs}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Git and GitHub} --- feature-branch workflow, pull
+    requests, code review, merge conflict resolution.
+    \item \textbf{ClickUp} --- task tracking, status reporting, and
+    sprint visibility.
+    \item \textbf{uv} --- the modern, fast Python package manager that
+    FlowGenX standardises on.
+    \item \textbf{Black, isort, Ruff, pre-commit} --- the code-quality
+    toolchain that enforces uniform style across the codebase.
+    \item \textbf{Docker and Docker Desktop} --- local container
+    development.
+    \item \textbf{Visual Studio Code} --- my primary IDE for the
+    internship, with Python, Pylance, and Docker extensions.
+    \item \textbf{Postman} --- exploration of third-party APIs before
+    coding the connector.
+    \item \textbf{Google Chat and Google Meet} --- the daily
+    communication tools.
+\end{itemize}
+
+\section{Non-Technical and Professional Skills}
+
+\subsection{Communication}
+Working as the only intern on a remote, distributed team taught me to
+write more carefully. I learned to write status updates that were
+self-contained (so the reader did not need additional context),
+to phrase technical questions in a way that respected the asynchronous
+nature of the team, and to surface blockers early in writing rather
+than waiting for a synchronous meeting. I also learned to ask
+questions in public channels rather than direct messages, so that the
+answers benefited the rest of the team and were searchable later.
+
+\subsection{Code Review Etiquette}
+Every pull request I opened received review comments, and I came to
+appreciate review as one of the highest-value activities a team can
+do. I learned to treat every comment as a conversation rather than a
+verdict, to push back politely with reasoning when I disagreed, to
+ask for clarification when a comment was ambiguous, and to thank
+reviewers for catching subtle issues. By the second half of the
+internship I was occasionally reviewing teammates' pull requests
+myself --- a small but meaningful sign of having earned the team's
+trust.
+
+\subsection{Time Management and Self-Direction}
+A remote internship with flexible hours requires more self-discipline,
+not less. I built the habit of setting a daily intention at the start
+of every working day --- usually ``ship one connector to a reviewable
+state, fix one bug, or close one documentation deliverable'' --- and
+kept honest with myself about what counted as ``done''. The ClickUp
+board made this discipline tangible, and the daily flow of pull
+requests provided unambiguous evidence of momentum.
+
+\subsection{Cross-Time-Zone Collaboration}
+Working from Bangladesh on a team distributed across the United
+States required deliberate handoffs. I learned to leave detailed
+end-of-day updates so that the United States team could pick up
+where I left off, to compose questions that did not require an
+immediate reply, and to schedule the small number of synchronous
+meetings during the evening overlap window. By the end of the
+internship, this kind of asynchronous handoff felt natural.
+
+\subsection{Professionalism and Ownership}
+The defining cultural expectation at FlowGenX --- as captured in my
+offer letter --- was that interns demonstrate the same commitment,
+dedication, and work ethics as full-time team members. I tried to
+honour that throughout: every commit message followed the convention,
+every pull request was self-reviewed before being opened, every
+connector was tested before being declared complete, and every
+deliverable was documented for the next person who would touch it.
+
+\subsection{Curiosity and Continuous Learning}
+The breadth of technologies on display in just five and a half
+months --- 90+ third-party APIs, multiple cloud providers, several
+agentic patterns, vector databases, MCP, A2A, Apache Airflow ---
+forced a kind of structured curiosity. I learned to read API
+documentation efficiently, to skim a codebase for patterns rather
+than reading every line, and to keep a running list of ``things I
+should circle back to'' that I worked through whenever a connector
+shipped.
+
+\subsection{Problem-Solving and Resilience}
+Every connector exposed at least one quirky issue: a malformed base
+URL, an undocumented rate limit, an authentication flow that worked
+on Linux but not Windows. I learned to treat every such issue as a
+puzzle with a finite solution rather than a blocker, to consult
+upstream documentation and the third-party's developer community
+when needed, and to document the resolution clearly enough that the
+next person hitting the same issue would not have to start from
+scratch.
+
+\subsection{Patience and Attention to Detail}
+The OpenAPI sample-backfill work was the clearest example: replacing
+placeholder values with real ones across hundreds of endpoints is
+the kind of task that has zero glamour and disproportionate impact.
+Doing it well taught me that small details (a real example value, a
+correct field name, a properly handled pagination token) can be the
+difference between a feature that frustrates users and one that
+delights them.

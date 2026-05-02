@@ -1,0 +1,211 @@
+\chapter{Life at FlowGenX AI}
+\label{ch:life}
+
+This chapter reflects on what it was actually like to work at
+FlowGenX AI as an intern. Because my internship was fully remote,
+this is necessarily a different kind of chapter from the
+``life-at-the-office'' narratives common in earlier internship
+reports. Remote-first work is now the dominant model in modern
+software companies, and the lived experience of being an intern at
+a globally distributed startup deserves to be described on its own
+terms rather than as a poor substitute for an in-office one.
+
+\section{A Remote-First, Globally Distributed Workplace}
+FlowGenX AI is headquartered in San Francisco, California, with
+engineers based in the United States and Bangladesh. There is no
+shared physical office in Bangladesh; the company runs as a
+remote-first organisation, with all employees and interns working
+from their own homes or chosen workspaces. The expectations and
+support structures the company puts in place are designed for that
+reality: the tools, communication norms, and cultural cues
+collectively make distributed work feel coherent rather than
+fragmented.
+
+The environment in practice has the following defining traits:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Trust over presence.} Nobody monitors when an
+    engineer is online; what matters is whether the work moves
+    forward, the pull requests get reviewed, and the standup updates
+    are posted. This puts the burden of self-direction on the
+    engineer, but in exchange offers a kind of working life that is
+    very hard to find in traditional offices.
+
+    \item \textbf{Asynchronous-first communication.} Most coordination
+    happens through Google Chat threads and ClickUp comments. Meetings
+    are reserved for design discussions, code-walkthroughs, and
+    onboarding sessions. The team has been thoughtful about not
+    over-scheduling video calls.
+
+    \item \textbf{Globally distributed culture.} Working alongside
+    engineers and leadership in San Francisco from Dhaka is itself a
+    professional experience worth highlighting. It teaches habits ---
+    written clarity, asynchronous handoffs, time-zone empathy ---
+    that translate directly into how senior software roles operate
+    today.
+\end{itemize}
+
+\section{My Workspace and Equipment}
+Per my offer letter, the internship was full-time, remote
+(Bangladesh), and I used my personal laptop for all work. I set up
+a dedicated workspace at home with:
+
+\begin{itemize}[leftmargin=*]
+    \item A reliable broadband connection with a backup mobile
+    hotspot for resilience.
+    \item Local installations of Python 3.11, Docker Desktop, the
+    \texttt{uv} package manager, Visual Studio Code, Postman, Git,
+    and the GitHub CLI.
+    \item Local clones of the four FlowGenX repositories under a
+    single parent directory so that editable installs cross-referenced
+    each other cleanly.
+    \item A local PostgreSQL instance for connector-metadata
+    development and testing.
+\end{itemize}
+
+The remote-first model meant I owned the operational health of my
+own development environment. When something broke (Docker on Windows
+having a moment, a Python virtual environment getting out of sync,
+a PostgreSQL upgrade requiring a re-import), I learned to diagnose
+and fix it myself rather than escalating to an IT team. This is not
+a small skill --- and it is one that classroom education rarely
+teaches.
+
+\section{Daily and Weekly Cadence}
+\subsection{A Typical Working Day}
+My typical working day ran from approximately
+\textbf{9:00\,a.m.\ to 5:00\,p.m.\ Bangladesh Standard Time
+(UTC+6)}, with flexibility to shift hours when a synchronous meeting
+with the United States team required late-evening overlap. A typical
+day looked roughly like this:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Morning (9:00 -- 11:00).} Catch up on overnight
+    activity from the United States team --- Google Chat messages,
+    pull-request comments, ClickUp updates. Resolve straightforward
+    review feedback before starting deep work.
+    \item \textbf{Late morning to early afternoon (11:00 -- 2:30).}
+    Focused implementation work on whichever connector or fix was the
+    day's primary deliverable.
+    \item \textbf{Afternoon (2:30 -- 5:00).} Testing, integration test
+    runs, sample-backfill work, and any outstanding documentation.
+    \item \textbf{Evening (occasional).} Synchronous meetings or
+    code-walkthroughs with the United States team during their
+    morning, when an overlap was needed.
+\end{itemize}
+
+\subsection{Weekly Rhythm}
+% TODO (CEO confirmation): exact sprint cadence and meeting names
+The week alternated between focused individual work and lightweight
+synchronous touchpoints. Pull requests typically opened and merged
+through the week as connectors were ready, rather than being
+batched into a single end-of-week push, and this rolling cadence is
+what made the team's velocity feel sustainable rather than spiky.
+
+\section{Communication and Collaboration Style}
+\subsection{Tools}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Google Chat} for asynchronous messaging --- both
+    one-on-one and team channels.
+    \item \textbf{Google Meet} for synchronous discussions, design
+    reviews, and onboarding sessions.
+    \item \textbf{ClickUp} for sprint and task tracking.
+    \item \textbf{GitHub} for code review through pull-request
+    comments.
+\end{itemize}
+
+The team migrated from \emph{Microsoft Teams} to \emph{Google Chat}
+during my tenure, and I participated in the migration first-hand ---
+a small but real experience of how a distributed team rolls out
+infrastructure changes without disrupting ongoing work.
+
+\subsection{Norms}
+A few unwritten communication norms shaped how the team worked:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Default to public channels.} Questions go into
+    team channels rather than direct messages so the answers benefit
+    the rest of the team and remain searchable.
+    \item \textbf{Self-contained messages.} Provide enough context in
+    a single message that the reader does not need a preamble of
+    back-and-forth to act.
+    \item \textbf{Show your working.} When asking for help, share
+    what you have already tried and what you observed --- not just
+    ``it does not work''.
+    \item \textbf{Timezone empathy.} Avoid expecting immediate
+    responses from teammates working in a different time zone;
+    structure questions so that they can be answered overnight and
+    come back actionable in the morning.
+\end{itemize}
+
+\section{Onboarding Experience}
+The onboarding period was deliberately short and project-driven.
+There was no multi-week classroom-style training; instead I was
+pointed at the project's \texttt{README.md} and \texttt{CLAUDE.md}
+files, walked through the architecture by my supervisor, and
+encouraged to start building real connectors as my learning
+artefacts. By the end of the second week I had merged my first
+half-dozen pull requests and had a complete mental model of the
+codebase.
+
+For me personally this approach worked very well. Building real
+features from week two meant I was investing in the same code I
+would still be working on six months later, and the depth of
+understanding that comes from shipping is qualitatively different
+from the kind that comes from reading.
+
+\section{Mentorship and Learning Culture}
+The single most positive aspect of life at FlowGenX AI was the
+mentorship. My supervisor reviewed every pull request thoroughly,
+explained the reasoning behind every suggestion, and never made me
+feel that a question was too small. My team lead's design feedback
+on larger refactors gave me a sense of how senior engineers think
+about evolving a codebase. My teammates were generous with their
+time when I needed help understanding a piece of the runtime that
+sat outside my immediate work.
+
+Beyond direct mentorship, the company maintains an active engineering
+blog (\texttt{https://blog.flowgenx.ai/}) and developer documentation
+(\texttt{https://docs.flowgenx.ai/}) that engineers are encouraged to
+read and contribute to. The Generative AI space moves fast, and
+working at FlowGenX meant being constantly nudged toward what was new
+in the field --- new agent patterns, new providers, new protocols.
+
+\section{Cross-Time-Zone Collaboration}
+Working from Bangladesh on a team partly based in San Francisco
+required intentional handoffs. The roughly twelve-hour offset between
+the two time zones meant there were only a few overlap hours per
+day, and they were precious. I learned to:
+
+\begin{itemize}[leftmargin=*]
+    \item Leave detailed end-of-day status updates so the United
+    States team could pick up where I left off.
+    \item Compose questions that did not require immediate replies
+    --- so the United States team could answer them overnight and I
+    would have actionable information the next morning.
+    \item Schedule the small number of synchronous meetings during
+    the evening overlap window without disrupting either side's
+    focus time.
+\end{itemize}
+
+By the end of the internship, this cross-time-zone discipline felt
+entirely natural. It is one of the most concretely transferable
+skills the experience gave me.
+
+\section{Reflection on Remote Work as an Intern}
+There is sometimes a quiet assumption in the academic conversation
+about internships that ``real'' internships happen in offices. My
+experience challenged that assumption. Working remotely on a globally
+distributed team taught me a different but equally valuable set of
+skills: written clarity, asynchronous coordination, self-direction,
+operational ownership of my own development environment, and the
+empathy required to collaborate across continents and time zones.
+These are precisely the skills that a senior software engineering
+career increasingly demands.
+
+What I missed --- the casual hallway conversations, the in-person
+whiteboard sessions --- I missed honestly. But what I gained was
+substantial: the experience of contributing to a serious product
+alongside experienced engineers in Silicon Valley, with the agency
+and trust that comes from being treated as a contributing member of
+the team from day one.

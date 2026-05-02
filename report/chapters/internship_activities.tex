@@ -1,0 +1,700 @@
+\chapter{Internship Activities and Project Work}
+\label{ch:activities}
+
+This chapter is the heart of the report. It describes what I actually
+did at FlowGenX AI during my five-and-a-half-month internship: who I
+worked with, how I onboarded, what I learned in the early weeks, and
+the specific live-product contributions I made between November 2025
+and May 2026. The chapter is organised into two phases, mirroring
+the natural arc of my internship: an initial learning period followed
+by sustained live-project work on the company's connectivity layer.
+
+\section{Overview of My Role}
+I joined FlowGenX AI on \textbf{10 November 2025} in the position of
+\emph{Full Stack Software Engineer -- Generative AI (Intern)}, and
+worked full-time, remotely from Bangladesh, until \textbf{02 May 2026}.
+This was a tenure of approximately five and a half months ---
+exceeding the four-month minimum stated in my offer letter --- during
+which I was integrated into the company's \emph{connectivity team}.
+
+\subsection{The Connectivity Team}
+The team I joined is responsible for the FlowGenX platform's
+integration substrate: the framework, the connector catalogue, and
+all the supporting tooling that exposes external services to the
+runtime, the workflow engine, and ultimately the end user.
+
+The people I worked with most closely on a daily basis were:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Mr.~Sanjib Sen} --- Senior Software Engineer and
+    Team Lead. Sanjib bhai owns the architectural direction of the
+    connectivity layer and is the senior reviewer for non-trivial
+    changes.
+    \item \textbf{Mr.~Abrar Bin Rofique} --- Software Engineer
+    (Generative AI), my direct supervisor. Abrar bhai owned my
+    onboarding, the day-to-day technical guidance, and the bulk of
+    the code review on my pull requests.
+    \item \textbf{Mr.~Nayem Islam} --- Software Engineer / AI
+    Engineer working closely with the connectivity team.
+    \item \textbf{Mr.~Latiful Kabir} --- Software Engineer
+    (Generative AI), also working closely with the connectivity team.
+\end{itemize}
+
+I was the only intern on the team for the duration of my engagement
+and was treated as a contributing member rather than a learner-only,
+in keeping with the company-wide culture of valuing impact over
+titles.
+
+\subsection{The Primary Project}
+My primary project was the \texttt{runtime\_connectivity} repository
+--- FlowGenX AI's unified Python framework for connecting the platform
+to external systems. By the end of my internship I had authored
+\textbf{178 commits} across the \texttt{dev} branch and dozens of
+feature branches, and delivered \textbf{more than ninety
+production-ready connectors} to the platform's integration catalogue.
+
+\section{Phase One: Initial Learning Period (Weeks 1--2)}
+The first two weeks of my internship were a deliberate ramp-up
+period. The work in this phase was not merely tutorial-style learning;
+the very first connectors I built (Weaviate, Discord, Notion, and a
+fix to Google Chat) shipped to production. The intent of the phase
+was to learn the framework by building inside it.
+
+\subsection{Setting Up the Development Environment}
+The very first task was to bring up a working local development
+environment for the connectivity package and the surrounding runtime
+services. This involved:
+
+\begin{itemize}[leftmargin=*]
+    \item Installing Python 3.11 and the \texttt{uv} package manager.
+    \item Cloning the four repositories
+    (\texttt{flowgenx-nextjs-V2}, \texttt{runtime\_apis},
+    \texttt{runtime\_components}, \texttt{runtime\_connectivity}) into
+    a shared parent directory so that local editable installs could
+    cross-reference each other.
+    \item Running \texttt{uv pip install -e ".[dev]"} inside
+    \texttt{runtime\_connectivity} to install the package in editable
+    mode along with all developer dependencies.
+    \item Installing the \texttt{pre-commit} hooks so that every
+    commit I made would be automatically formatted and linted.
+    \item Configuring a local PostgreSQL instance and Docker Desktop
+    on Windows for connector testing and end-to-end integration runs.
+    \item Standing up the FastAPI service through the project's
+    \texttt{dev.sh up} script and verifying that the Swagger UI
+    (\texttt{http://localhost:8081/docs}) and the Airflow UI
+    (\texttt{http://localhost:8080}) were both reachable.
+\end{itemize}
+
+\subsection{Understanding the Connector Framework}
+Before writing my first connector, my supervisor walked me through
+the project's three-tier abstraction
+(\texttt{BaseManager} → \texttt{DBManager}/\texttt{FSManager}/%
+\texttt{ObjManager}), the \texttt{@openapi\_endpoint} decorator, the
+dual sync/async pattern, the \texttt{ConnParams} convention, and the
+metadata-generation pipeline that takes a connector from source code
+to UI. I read the project's \texttt{README.md} and \texttt{CLAUDE.md}
+end-to-end, then reverse-engineered an existing connector
+(PostgreSQL) to see how all the pieces fit together in practice.
+
+The most important conceptual insight from this period was that a
+connector at FlowGenX is not just a Python class; it is a
+\emph{four-artefact bundle}:
+
+\begin{enumerate}[leftmargin=*]
+    \item Source code (\texttt{ConnParams} + \texttt{Manager} +
+    per-method modules, decorated with OpenAPI metadata).
+    \item Integration tests (\texttt{test\_<name>\_connector.py}).
+    \item Auto-generated metadata
+    (\texttt{openapi\_spec.json}, \texttt{auth\_config.json},
+    \texttt{connector\_metadata.json}).
+    \item A UI Endpoint Test Reference document for end users.
+\end{enumerate}
+
+Internalising this four-artefact contract was what made my work
+self-consistent from the very first connector onwards.
+
+\subsection{First Connectors as Learning Artefacts}
+With my environment set up and the framework understood, the second
+half of the onboarding period was hands-on. Between
+\textbf{20 November and 30 November 2025} I shipped my first
+production connectors:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Weaviate} --- a vector-database connector. This was
+    my first end-to-end implementation. Building it taught me how to
+    model schema-less data, work with vector embeddings, and write
+    the \texttt{near\_vector} similarity-search method.
+    \item \textbf{Discord} --- a messaging-platform connector that
+    taught me how OAuth-style bearer tokens work in practice.
+    \item \textbf{Notion} --- a productivity-tool connector. This is
+    where I first wired up environment-variable support and applied
+    the \texttt{@openapi\_endpoint} decorator end-to-end.
+    \item \textbf{Perplexity AI} --- my first AI-provider connector.
+    \item \textbf{QuickBooks (initial scaffolding)},
+    \textbf{Uber}, \textbf{Shopify}, \textbf{S\&P Global},
+    \textbf{ClickUp}, \textbf{MongoDB}, and an initial
+    \textbf{Stripe} connector --- each one teaching me a slightly
+    different aspect of authentication, pagination, or
+    error handling.
+    \item A \textbf{Google Chat fix} --- my first real
+    bug-fix-and-merge experience inside someone else's connector.
+\end{itemize}
+
+By the end of week two I had merged my first half-dozen pull requests
+and had a complete mental model of the codebase. Phase one was
+complete; phase two could begin.
+
+\section{Phase Two: Live Project Involvement}
+The remaining five months of the internship were spent contributing
+to \texttt{runtime\_connectivity} as a normal team member. The work
+fell into four categories: \textbf{feature development} (new
+connectors), \textbf{bug fixes and reliability work}, \textbf{code
+improvement and refactoring}, and \textbf{documentation}. I describe
+each in turn, then narrate a few of the most substantial connectors
+in greater depth.
+
+\subsection{The Connector Lifecycle in Practice}
+Every connector I delivered followed the same lifecycle:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{API research.} Read the third-party API
+    documentation; identify the auth model, the priority methods,
+    pagination, rate limits, and any quirks.
+    \item \textbf{Branch.} Create a feature branch named for the
+    connector (for example, \texttt{wordpress-connector},
+    \texttt{Harness\_connector}, \texttt{connector/aws\_textract}).
+    \item \textbf{Connection-parameter modelling.} Define a
+    \texttt{ConnParams} Pydantic model with the right field types,
+    descriptions, and \texttt{json\_schema\_extra} UI metadata.
+    \item \textbf{Manager class.} Subclass the appropriate base
+    manager (\texttt{DBManager}, \texttt{FSManager}, or
+    \texttt{ObjManager}); implement \texttt{\_connect},
+    \texttt{\_close}, and \texttt{test\_connection}.
+    \item \textbf{Per-method modules.} Implement each business method
+    in its own file, decorated with \texttt{@openapi\_endpoint},
+    using the dual sync/async helpers so that both calling contexts
+    are supported.
+    \item \textbf{Integration test script.} Write
+    \texttt{test\_<connector>\_connector.py} that hits the live API
+    with real credentials and produces a
+    \textsc{PASS}\,/\textsc{FAIL}\,/\textsc{SKIP} report per endpoint.
+    \item \textbf{Sample backfill.} Run the integration test, capture
+    real request and response payloads, and update the
+    \texttt{request\_schema} \texttt{example} fields and
+    \texttt{response\_sample} dict on every decorator with those real
+    values.
+    \item \textbf{Metadata generation.} Run
+    \texttt{generate\_openapi\_spec.py},
+    \texttt{generate\_auth\_config.py}, and
+    \texttt{populate\_connector\_db.py} so the connector becomes
+    visible in the FlowGenX UI.
+    \item \textbf{Pull request and review.} Push the branch, open a
+    pull request with a descriptive
+    \texttt{feature/Rakib/(<connector>): <summary>}-formatted commit
+    message, address review feedback, then merge into \texttt{dev}.
+    \item \textbf{Endpoint testing.} After merge, validate the
+    connector through the API tester, MCP Playground (Figure
+    \ref{fig:mcp-playground}), and an end-to-end workflow run
+    (Figure \ref{fig:workflow-editor}). Update the ClickUp card.
+    \item \textbf{Documentation.} For high-value connectors,
+    additionally author a \emph{UI Endpoint Test Reference} document
+    so that other engineers and end users have a concrete
+    API-usage cookbook.
+\end{enumerate}
+
+This eleven-step lifecycle is what makes ``ship a connector to
+production'' a repeatable, predictable activity rather than a
+heroic effort each time. Internalising and operating it cleanly was
+the single most important habit I built during the internship.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/screenshots/Auth_config.jpg}
+    \caption{Authentication configuration page driven by
+    \texttt{auth\_config.json}.}
+    \label{fig:auth-config}
+\end{figure}
+
+\subsection{Work Timeline}
+Table \ref{tab:work-timeline} summarises what I delivered across
+the twenty-four weeks of the internship. The table is compiled
+directly from my Git history on the \texttt{runtime\_connectivity}
+repository.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Period} & \textbf{Connectors and work delivered} \\
+\midrule
+Nov 20 -- Nov 30, 2025 & Weaviate; Discord; Notion (full setup with env-var support and decorators); Perplexity AI; QuickBooks (initial); Uber; Shopify (test pass); Google Chat fix; S\&P Global; ClickUp; MongoDB; Stripe (initial). \\
+\addlinespace
+Dec 1 -- Dec 14, 2025 & Elasticsearch (with Windows encoding fix); Datadog; Milvus; LaunchDarkly; Zoho CRM; FreshDesk; Yelp; Stripe; FreshBooks; Xero; GitLab; GitHub; Zoho Desk; Apollo.io; Zoom; WordPress; Customer.io; BambooHR; Lever; OneDrive; SharePoint; FreshBooks endpoint refactor. Merged PRs \#55, \#74, \#78, \#87. \\
+\addlinespace
+Dec 15 -- Dec 31, 2025 & AWS S3 (bucket policies, versioning, multipart uploads); MySQL upgrades (truncate / update / upsert); PostgreSQL enhancements; Pinecone; Tavily; Exa; SerpAPI; AWS RDS PostgreSQL; AWS RDS MySQL; dbt-cloud; OpenWeatherMap; Freshsales; Zendesk Sell; Auth0; Massive; MSSQL with full CRUD; Azure Blob Storage; Azure SQL Server (firewall + retry); Groq; OpenAI. \\
+\addlinespace
+Jan 1 -- Jan 15, 2026 & Anthropic (with Files / Skills API restructure); DeepSeek; xAI; Azure Data Lake; Typesense; X (Twitter); LINE Messaging; Google Tasks; GitHub Actions; Google Forms; Gusto; Zoho Inventory; Zoho Books. \\
+\addlinespace
+Jan 16 -- Jan 31, 2026 & Zoho Analytics (User Management + data manipulation); Zoho Campaigns; Mailchimp; EPIC FHIR (initial groundwork and permissioning); Microsoft Dynamics 365 Business Central; Linear; AlphaSense; Gong; Outreach; 6sense; SalesLoft; Rippling; FactSet; Google Chat. \\
+\addlinespace
+Feb 1 -- Feb 28, 2026 & Jira Service Management; Typeform; Ashby; Freshservice; Okta; Crunchbase; HelpScout; AWS Textract (23 methods, sync + async + adapters); AWS Rekognition (75 methods covering image, video, face, custom labels, stream processors); HelpScout UI test-reference doc; Rekognition endpoint test reference. \\
+\addlinespace
+Mar 1 -- Mar 15, 2026 & Octagon (15 financial-research agents); Harness (46 methods across V1 + legacy APIs); SonarQube (34 methods across server + cloud); QuickBooks access-token refresh; QuickBooks OAuth callback fix; Typesense OpenAPI spec; OpenAI / Exa / SerpAPI / Stripe UI Endpoint Test Reference docs; Google Forms enhancements. \\
+\addlinespace
+Mar 16 -- Mar 31, 2026 & OpenFIGI (4 methods, API key auth); Notion UI test reference; GitHub \texttt{write\_object\_to\_dataframe} refactor (list support); AWS RDS MySQL registry registration; Supabase (50 methods); Eventbrite; Google Meet; Apify (69 methods, webhook + wait-for-run). \\
+\addlinespace
+Apr 1 -- Apr 15, 2026 & Attio; Instantly (63 methods); Chorus; NeverBounce; PostgreSQL parameter standardisation; LinkedIn Sales Navigator (with token refresh); MySQL connector list/DataFrame support; ClickUp response-sample backfill. \\
+\addlinespace
+Apr 16 -- May 2, 2026 & Documentation pass and polish: GitLab API doc + response samples; Freshsales API enhancements; Mailchimp test + doc updates; FreshDesk doc enhancements; Freshservice integration scripts + endpoint test reference; Freshworks CRUD enhancements; Zoho CRM UI test reference; Zoho Analytics UI test reference; Zoho Campaigns final polish. \\
+\bottomrule
+\end{tabularx}
+\caption{Connectors and work delivered, week by week, on the
+\texttt{runtime\_connectivity} repository.}
+\label{tab:work-timeline}
+\end{table}
+
+\subsection{Connector Catalogue Summary}
+Aggregating across the timeline, the connectors I built or
+significantly enhanced span the following categories:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Databases, vector and search backends.} PostgreSQL,
+    MySQL, MSSQL with full CRUD, AWS RDS MySQL, AWS RDS PostgreSQL,
+    MongoDB, Pinecone, Weaviate, Milvus, Typesense, Elasticsearch.
+    \item \textbf{Cloud storage and file platforms.} AWS S3 (bucket
+    policies, versioning, multipart uploads), Azure Blob Storage,
+    Azure Data Lake, Microsoft OneDrive, Microsoft SharePoint.
+    \item \textbf{AI / LLM providers.} Anthropic (messages, batch,
+    files, models, the Skills API), OpenAI (assistants, models,
+    threads), xAI, Groq, DeepSeek, Perplexity AI; AWS Textract
+    (23~methods covering sync and async document analysis and adapter
+    management); AWS Rekognition (75~methods covering image, video,
+    face, custom labels, and stream-processor APIs).
+    \item \textbf{Search, market, and research data.} Tavily, Exa,
+    SerpAPI, OpenFIGI, FactSet, S\&P Global, Crunchbase, AlphaSense,
+    Octagon (15 financial-research agents).
+    \item \textbf{CRM, sales engagement, and prospecting.} Apollo.io,
+    Attio, Freshsales, Freshworks (CRUD enhancements), Outreach,
+    SalesLoft, Gong, Chorus, 6sense, LinkedIn Sales Navigator
+    (with token refresh), Zoho CRM, Zendesk Sell, Zoho Desk.
+    \item \textbf{Finance and accounting.} Stripe, QuickBooks (with
+    OAuth2 access-token refresh mechanism), Xero, FreshBooks, Zoho
+    Books, Zoho Inventory, Microsoft Dynamics 365 Business Central
+    (sales invoices, customers, vendors, items, purchase invoices),
+    dbt-cloud.
+    \item \textbf{Marketing and email.} Mailchimp, Customer.io,
+    Instantly (63 methods), NeverBounce, Zoho Campaigns.
+    \item \textbf{Productivity, collaboration, and meetings.} Notion,
+    ClickUp, Linear, Discord, Zoom, Google Meet, Google Chat, Google
+    Forms, Google Tasks, Typeform, Eventbrite, Supabase.
+    \item \textbf{Helpdesk and IT service management.} FreshDesk,
+    Freshservice, HelpScout, Jira Service Management.
+    \item \textbf{HR, recruiting, and payroll.} BambooHR, Lever,
+    Ashby, Rippling, Gusto.
+    \item \textbf{DevOps and engineering.} GitHub, GitLab, GitHub
+    Actions, Harness (46 methods spanning V1 and legacy APIs),
+    SonarQube (34 methods across server and cloud APIs),
+    LaunchDarkly, Datadog.
+    \item \textbf{Identity and access.} Auth0, Okta.
+    \item \textbf{Communication and social.} Twitter/X, LINE
+    Messaging, WordPress, Shopify, Yelp, Uber.
+    \item \textbf{Healthcare.} EPIC FHIR (initial groundwork and
+    permissioning).
+    \item \textbf{Other utilities.} Apify (69 methods, with webhook
+    and wait-for-run support), OpenWeatherMap, Massive.
+\end{itemize}
+
+Figure \ref{fig:app-gallery} shows how connectors appear in the
+FlowGenX application gallery, and Figure \ref{fig:connected-apps}
+shows the connected-apps page where end users manage their live
+authentications.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/screenshots/APP_gallery.jpg}
+    \caption{The FlowGenX AI app gallery, populated by connectors
+    delivered through \texttt{runtime\_connectivity}.}
+    \label{fig:app-gallery}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/screenshots/Connected_apps.jpg}
+    \caption{End-user view of connected apps (active authentications)
+    on the FlowGenX platform.}
+    \label{fig:connected-apps}
+\end{figure}
+
+\section{Selected Deep-Dives}
+Of the 90+ connectors I delivered, six stand out either for their
+size, their architectural complexity, or the depth of the lessons
+they offered. I describe each one's requirements, my approach, the
+challenges I faced, and the final outcome --- the same template the
+team uses internally for retrospectives.
+
+\subsection{AWS Rekognition: 75 Methods Across Five Domains}
+\paragraph{Requirements.}
+Expose the full Amazon Rekognition surface area through FlowGenX so
+that end users can build vision-driven workflows --- detecting
+labels, faces, text, moderation flags, and so on --- across both
+single-image calls and long-running asynchronous video analyses.
+
+\paragraph{My approach.}
+I broke the API surface into five logical domains: image analysis,
+video analysis, face management (collections, indexing, searching),
+custom labels (project, project version, dataset management), and
+stream processors. For each domain I implemented its methods in a
+dedicated module under the connector folder, all sharing the same
+\texttt{ConnParams} schema (AWS access key, secret key, region) and
+\texttt{Manager} class. The async-video methods explicitly returned
+job identifiers so that downstream workflow steps could poll for
+results, in line with how Rekognition itself models long-running
+work.
+
+\paragraph{Challenges.}
+The most subtle issue was the breadth: 75 methods is large enough
+that small inconsistencies (parameter naming, response shape,
+default values) compound into a confusing user experience. To
+prevent this I authored a short style guide for the connector
+itself --- ``every job-id parameter is called \texttt{job\_id}'',
+``every output is returned as the raw boto3 response with the
+top-level \texttt{ResponseMetadata} stripped'', and so on --- and
+applied it uniformly across all 75 methods.
+
+\paragraph{Outcome.}
+A single connector that gives FlowGenX users access to the entire
+Rekognition catalogue under a uniform interface. I followed up with
+a UI Endpoint Test Reference document so that end users have a
+ready-made cookbook for the most common image and video flows.
+
+\subsection{AWS Textract: A Sync/Async Restructure}
+\paragraph{Requirements.}
+Add Textract for document analysis (forms, tables, text extraction,
+receipt and invoice analysis) and queries, plus management of
+\emph{adapters} (Textract's mechanism for fine-tuning).
+
+\paragraph{My approach.}
+Rather than a flat list of 23 methods, I split the connector into
+three sub-modules: synchronous document analysis, asynchronous
+document analysis, and adapter management. This made the connector
+significantly easier to navigate at code-review time and meant that
+end users in the UI saw a logically ordered method list grouped by
+intent.
+
+\paragraph{Challenges.}
+The interesting subtlety here is that the synchronous methods accept
+inline image bytes and return results immediately, whereas the
+asynchronous methods accept S3 references and return job identifiers
+that have to be polled separately. Modelling these two execution
+shapes uniformly --- without one leaking into the other --- was a
+small but instructive design exercise.
+
+\paragraph{Outcome.}
+A 23-method Textract connector with a clean separation of concerns
+and a corresponding UI Endpoint Test Reference document, ready for
+production use.
+
+\subsection{Apify: 69 Methods With Long-Running Webhook Patterns}
+\paragraph{Requirements.}
+Expose Apify --- a platform for running web crawlers, scrapers, and
+browser-automation actors --- through FlowGenX so that end users can
+trigger actor runs, retrieve dataset items, manage tasks, and
+configure webhooks.
+
+\paragraph{My approach.}
+The connector ended up with 69 methods organised around Apify's six
+core resources (Actors, Tasks, Runs, Datasets, Key-Value Stores,
+Webhooks). Two design choices were specific to this connector:
+first, support for \emph{wait-for-run} semantics so that a workflow
+step could optionally block until an actor's run finished; and
+second, first-class webhook configuration so that long-running runs
+could push completion events back to FlowGenX rather than being
+polled.
+
+\paragraph{Challenges.}
+The wait-for-run feature exposes a long-running behaviour that does
+not naturally fit either the synchronous or the asynchronous mould
+of the rest of the framework. I implemented it as a synchronous
+method with a configurable timeout, falling back to returning the
+run identifier if the timeout elapsed --- giving the workflow author
+both ergonomics and safety.
+
+\paragraph{Outcome.}
+A 69-method Apify connector that supports both fire-and-forget and
+wait-for-completion semantics across all of Apify's core resources.
+
+\subsection{QuickBooks: OAuth2 With Access-Token Refresh}
+\paragraph{Requirements.}
+Add QuickBooks Online for accounting workflows --- customers,
+invoices, payments, vendors. The challenge was not the surface area
+but the authentication: QuickBooks uses OAuth 2.0 with short-lived
+access tokens that must be refreshed periodically against Intuit's
+auth server.
+
+\paragraph{My approach.}
+I implemented the standard OAuth 2.0 authorisation-code flow inside
+the connector, persisting the resulting refresh token alongside the
+connection record. On every API call, the connector checks whether
+the cached access token is still valid, and if not, transparently
+refreshes it using the stored refresh token before retrying the
+call. The refresh logic is encapsulated in a single helper so that
+every endpoint benefits from it without opting in.
+
+\paragraph{Challenges.}
+The first version had a subtle bug in the OAuth callback flow that
+caused redirect-URI mismatches in production. I worked through this
+with the team and shipped a fix that correctly round-trips the state
+parameter and resolves the redirect URI against the platform's
+canonical base URL.
+
+\paragraph{Outcome.}
+A QuickBooks connector that survives long-running sessions without
+401 errors, plus a generalised pattern for OAuth2 access-token
+refresh that other connectors (notably LinkedIn Sales Navigator)
+later reused.
+
+\subsection{Anthropic: Files API and the New Skills API}
+\paragraph{Requirements.}
+Expose the full Anthropic developer surface --- messages, the batch
+API, models, the Files API, and the newly released Skills API ---
+through FlowGenX so that end users can build agents on Claude with
+tool-use, file inputs, and skill composition.
+
+\paragraph{My approach.}
+The first cut of the Anthropic connector mixed the Files and
+Skills surfaces, which was confusing because they have different
+lifecycles and very different authorisation models. I restructured
+the connector into clearly labelled sub-modules for Messages, Batch,
+Models, Files, and Skills. The reorganisation made the OpenAPI
+output significantly cleaner and made the resulting UI much easier
+for end users to navigate.
+
+\paragraph{Outcome.}
+A clean, modular Anthropic connector that exposes the entire
+developer surface and is ready for the next API additions Anthropic
+ships.
+
+\subsection{Octagon, Harness, and SonarQube: Heavy-Surface Connectors}
+\paragraph{Requirements.}
+Expose three more connectors with substantial surface areas:
+\textbf{Octagon} (15 financial-research AI agents),
+\textbf{Harness} (46 methods spanning the V1 and legacy DevOps
+APIs), and \textbf{SonarQube} (34 methods spanning the SonarQube
+Server and SonarCloud APIs).
+
+\paragraph{My approach.}
+Each one followed the same playbook: read the API documentation
+thoroughly, group methods by sub-resource, write per-method modules
+under a single \texttt{Manager}, and use the integration test
+script to validate every endpoint with real credentials. Because
+all three of these connectors expose more than a dozen methods
+each, I wrote them with the discipline of treating each
+\texttt{response\_sample} as a first-class deliverable so that the
+end-user experience in the UI would be ``click Send and it just
+works.''
+
+\paragraph{Outcome.}
+Three substantial connectors landed in the same six-week window and
+together added more than 95 callable methods to the FlowGenX
+catalogue.
+
+\section{Bug Fixes and Reliability Work}
+Alongside new feature delivery I shipped a number of reliability
+improvements. The most consequential were:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{OAuth2 redirect-URI fixes} for QuickBooks (callback
+    flow) and FreshBooks; the QuickBooks fix shipped together with an
+    \emph{access-token refresh mechanism} so that long-running
+    sessions stop failing with 401 errors.
+    \item \textbf{SQL Server retry logic} added to stabilise flaky
+    connection tests under transient network errors, plus a
+    firewall-rule mode-selection enhancement for Azure SQL Server.
+    \item \textbf{Windows console encoding fix} in the Elasticsearch
+    connector that prevented a Unicode crash on the Windows test
+    runner --- a small fix with disproportionate value, since it
+    unblocked the Windows-based developers on the team.
+    \item \textbf{WordPress connector hardening} --- added error
+    handling to \texttt{list\_blocks} and corrected a malformed
+    base-URL construction in \texttt{search\_content}.
+    \item \textbf{Customer.io test configuration fix} for an outdated
+    API key that was breaking continuous integration.
+    \item \textbf{Google Chat post-method fix} addressing a malformed
+    request body.
+    \item \textbf{Cache cleanup fix} to prevent stale data between
+    connector test runs.
+    \item \textbf{Datadog log-ingestion debugging} during the
+    connector rollout.
+    \item \textbf{AWS RDS MySQL registry registration} --- added
+    connection parameters and the manager class to the central
+    \texttt{source\_managers} registry so the connector became
+    reachable through \texttt{ConnectionWrapper}.
+    \item \textbf{GitLab connector revert handling} --- coordinated
+    with the team after a teammate's revert and re-merged a clean
+    version of the work.
+\end{itemize}
+
+\section{Code Improvement and Refactoring}
+Reliability and feature work were complemented by a handful of
+larger refactors that improved the developer experience and the
+end-user experience equally:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{DataFrame / list duality across SQL connectors.} I
+    standardised parameter naming and accepted shapes across the
+    PostgreSQL, MySQL, and GitHub connectors so that write methods
+    transparently accept either a \texttt{pandas.DataFrame} or a
+    plain \texttt{list[dict]}. This made the connectors significantly
+    more flexible for downstream consumers in the runtime that did
+    not always have pandas in scope.
+    \item \textbf{AWS Textract restructuring.} Cleanly separated
+    synchronous and asynchronous document-analysis methods plus
+    adapter management, as described in the deep-dive above.
+    \item \textbf{Anthropic connector reorganisation.} Cleanly
+    separated the Files API and the new Skills API, again as
+    described above.
+    \item \textbf{\texttt{Zoho\_CRM} folder rename.} Aligned the
+    folder name with the project's casing conventions, plus the
+    surrounding cleanup in imports and metadata generation.
+    \item \textbf{LaunchDarkly test script.} Improved with cleanup
+    logic and richer logging to make repeated test runs
+    deterministic.
+    \item \textbf{OpenAPI sample backfill across many connectors.}
+    Replaced placeholder values in \texttt{request\_schema} and
+    \texttt{response\_sample} with real values captured from live
+    API runs (FreshDesk, Freshservice, GitLab, ClickUp, Apify,
+    Instantly, Mailchimp, Freshsales, Freshworks, and others). This
+    is the work that directly improves the end-user experience in
+    the FlowGenX UI by pre-filling forms with values that actually
+    work.
+    \item \textbf{General readability and maintainability passes} on
+    the FreshBooks endpoints (clients, expenses, invoices, tasks,
+    time entries) and other resource-heavy connectors.
+\end{itemize}
+
+\section{Documentation Contributions}
+A connector at FlowGenX is not considered fully complete until it has
+a UI Endpoint Test Reference document --- a concrete, hands-on
+cookbook that shows end users how to call each method from the
+platform UI, what parameters to provide, and what shape of response
+to expect. I authored such documents for many of the high-value
+connectors I delivered, including:
+
+\begin{itemize}[leftmargin=*]
+    \item Notion, Stripe, OpenAI, Exa, SerpAPI.
+    \item HelpScout, Typesense.
+    \item Zoho CRM, Zoho Analytics, Zoho Campaigns.
+    \item FreshDesk, Freshservice.
+    \item AWS Rekognition.
+    \item Google Forms.
+\end{itemize}
+
+These documents serve a dual purpose. They give end users immediate
+clarity on how to use a connector, and they give other engineers a
+ready-made test plan when they need to verify that a connector
+still works after an upstream API change.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/screenshots/paricular_connector_endpoint_test.jpg}
+    \caption{Per-connector endpoint testing UI used during validation.}
+    \label{fig:endpoint-test}
+\end{figure}
+
+\section{Collaboration and Workflow Discipline}
+Across the entire engagement, the way I worked with the rest of the
+team mattered as much as the code I shipped. The recurring practices
+I followed were:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Branch hygiene.} Every connector was developed on
+    its own feature branch (\texttt{wordpress-connector},
+    \texttt{freshbooks-connector}, \texttt{Harness\_connector},
+    \texttt{MySQL-connector}, \texttt{Google-Forms-connector},
+    \texttt{freshworks}, \texttt{zoho\_CRM-connector},
+    \texttt{Zoho-Campaigns-connector}, and so on). \texttt{dev} was
+    treated as the integration branch and was never committed to
+    directly.
+    \item \textbf{Commit-message convention.}
+    \texttt{feature/Rakib/(<connector>): <summary>} for every
+    commit, so reviewers could trace work per integration without
+    needing to read through diffs.
+    \item \textbf{Conflict resolution.} Kept feature branches
+    up-to-date with \texttt{origin/dev} and resolved merge conflicts
+    manually where they arose --- including non-trivial merges on
+    the AWS Textract, HelpScout, X (Twitter), Harness, Google Forms,
+    FreshBooks, Freshworks, and Zoho CRM branches.
+    \item \textbf{Metadata pipeline coordination.} Every merge was
+    paired with a re-run of \texttt{generate\_openapi\_spec.py},
+    \texttt{generate\_auth\_config.py}, and
+    \texttt{populate\_connector\_db.py} so that the connector
+    appeared in the FlowGenX UI immediately rather than requiring
+    a follow-up pass.
+\end{itemize}
+
+\section{Additional Learning Beyond the Core Work}
+The internship also gave me room to explore technologies beyond the
+strict scope of my connector work, in keeping with the company's
+culture of curiosity. Specifically:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Model Context Protocol (MCP).} The protocol that
+    FlowGenX uses to expose connectors as standardised tools for
+    agents to discover and call. I exercised MCP through the MCP
+    Playground (Figure \ref{fig:mcp-playground}) for many of the
+    connectors I shipped.
+    \item \textbf{Agent-to-Agent (A2A) communication.} The protocol
+    that supports multi-agent orchestration patterns inside the
+    Agent Fabric. I learned the basics of how A2A and MCP fit
+    together inside the runtime.
+    \item \textbf{gRPC.} I read the runtime APIs codebase in enough
+    depth to understand how internal services communicate over gRPC
+    in addition to FastAPI HTTP endpoints.
+    \item \textbf{Apache Airflow and the workflow engine.} Reading
+    the \texttt{runtime\_apis} repository and walking through DAGs
+    in the Airflow UI gave me an end-to-end picture of how a user's
+    workflow turns into actual execution against my connectors.
+    \item \textbf{The reusable component library
+    (\texttt{runtime\_components}).} I read the source for
+    \texttt{FilterComponent}, \texttt{DataMappingComponent},
+    \texttt{DataPrivacyComponent} (with built-in PII masking),
+    \texttt{JoinerComponent}, \texttt{HTTPNodeComponent},
+    \texttt{ForeachComponent}, \texttt{SwitchComponent}, and the
+    \texttt{SensorComponent}, which gave me an appreciation for the
+    other half of the pipeline that my connectors feed.
+\end{itemize}
+
+\section{Impact in Summary}
+Stepping back from the day-to-day, the cumulative impact of my work
+over the internship can be summarised as follows:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Catalogue expansion.} Delivered more than ninety
+    production-ready connectors, significantly expanding the
+    FlowGenX integration catalogue and letting end users build
+    automation workflows against many more databases, cloud
+    services, and SaaS APIs than before --- with no additional
+    engineering work needed on their part.
+    \item \textbf{Standardised heavy surfaces.} Standardised how
+    heavy-API surfaces (AWS Rekognition, AWS Textract, Apify,
+    Harness, SonarQube, Instantly) are exposed inside FlowGenX so
+    that the runtime can reliably call dozens of operations per
+    service through a single Manager class.
+    \item \textbf{Better out-of-the-box UX.} By capturing real
+    request and response samples during testing and embedding them
+    into the OpenAPI specs --- and writing companion UI Endpoint
+    Test Reference documents --- I made it possible for end users
+    to hit \emph{Send} on most endpoints without editing the
+    request body, a meaningful reduction in time-to-first-success.
+    \item \textbf{Reliability improvements.} Added retry logic,
+    OAuth token-refresh mechanisms, encoding fixes, and proper
+    error handling to connectors that previously failed under
+    realistic conditions (Windows hosts, transient network errors,
+    expired access tokens, malformed responses).
+    \item \textbf{Engineering-velocity contribution.} Followed a
+    consistent connector template
+    (\texttt{ConnParams} → \texttt{Manager} → decorated methods →
+    tests → metadata) that made my work easy for teammates to
+    review, extend, and reuse on their own connectors.
+\end{itemize}
