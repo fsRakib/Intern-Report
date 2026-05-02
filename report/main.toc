@@ -1,0 +1,131 @@
+\contentsline {chapter}{Acknowledgement}{3}{chapter*.1}%
+\contentsline {chapter}{Executive Summary}{5}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Origin of the Report}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objectives of the Report}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Scope of the Report}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Methodology}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Limitations}{4}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Company Profile: FlowGenX AI}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Company Overview}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Vision}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}What FlowGenX AI Does}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.4}The FlowGenX Platform}{7}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Multi-Agent Orchestration (Agent Fabric)}{7}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Agentic Integration Engine (Integration Studio)}{7}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Workflow Development}{7}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Intelligent Knowledge Base}{8}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Work AI}{8}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}Security \& Governance (Agent Gateway)}{8}{subsection.2.4.6}%
+\contentsline {section}{\numberline {2.5}Use Cases and Target Industries}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Tools and Technologies Utilised by FlowGenX AI}{10}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Programming Languages}{10}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Backend Frameworks and Libraries}{10}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Frontend Frameworks and Libraries}{10}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Platform Data Stores}{11}{subsection.2.6.4}%
+\contentsline {subsection}{\numberline {2.6.5}Cloud Infrastructure and DevOps}{11}{subsection.2.6.5}%
+\contentsline {subsection}{\numberline {2.6.6}Agentic Platform Primitives}{11}{subsection.2.6.6}%
+\contentsline {subsection}{\numberline {2.6.7}Engineering Tooling}{12}{subsection.2.6.7}%
+\contentsline {section}{\numberline {2.7}Integration Catalogue}{12}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Internal Architecture (At a High Level)}{14}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Office Environment and Working Style}{14}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Company Culture}{15}{section.2.10}%
+\contentsline {chapter}{\numberline {3}Software Methodology and Engineering Process}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Development Methodology}{16}{section.3.1}%
+\contentsline {section}{\numberline {3.2}End-to-End Development Lifecycle}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Requirement Gathering}{17}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Design}{17}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Implementation (the Development Cycle)}{18}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Code Review and Pull Requests}{19}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Testing Strategy}{19}{subsection.3.2.5}%
+\contentsline {paragraph}{Unit and contract tests.}{19}{subsection.3.2.5}%
+\contentsline {paragraph}{Integration tests against the live API.}{19}{subsection.3.2.5}%
+\contentsline {paragraph}{End-to-end UI and workflow validation.}{20}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Deployment to Development, Staging, and Production}{20}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Hotfixes}{20}{subsection.3.2.7}%
+\contentsline {section}{\numberline {3.3}Development Tools}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Version Control}{21}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Project Management}{21}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Code Review}{21}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Package Management}{21}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Containerisation and Orchestration}{21}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Communication and Collaboration}{21}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}API Documentation}{21}{subsection.3.3.7}%
+\contentsline {section}{\numberline {3.4}Error Handling and Logging Conventions}{22}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Internship Activities and Project Work}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Overview of My Role}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}The Connectivity Team}{23}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}The Primary Project}{24}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Phase One: Initial Learning Period (Weeks 1--2)}{24}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Setting Up the Development Environment}{24}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Understanding the Connector Framework}{25}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}First Connectors as Learning Artefacts}{26}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Phase Two: Live Project Involvement}{26}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}The Connector Lifecycle in Practice}{26}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Work Timeline}{28}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Connector Catalogue Summary}{30}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Bug Fixes and Reliability Work}{32}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Code Improvement and Refactoring}{33}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Documentation Contributions}{34}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Collaboration and Workflow Discipline}{34}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Additional Learning Beyond the Core Work}{35}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Impact in Summary}{36}{section.4.9}%
+\contentsline {chapter}{\numberline {5}Skills Acquired}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Technical Skills}{37}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Programming Languages}{37}{subsection.5.1.1}%
+\contentsline {paragraph}{Python (Python 3.11+).}{37}{subsection.5.1.1}%
+\contentsline {paragraph}{SQL.}{37}{subsection.5.1.1}%
+\contentsline {paragraph}{TypeScript and JavaScript.}{37}{subsection.5.1.1}%
+\contentsline {paragraph}{Configuration languages.}{38}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Frameworks and Libraries}{38}{subsection.5.1.2}%
+\contentsline {paragraph}{FastAPI and Pydantic.}{38}{subsection.5.1.2}%
+\contentsline {paragraph}{Apache Airflow.}{38}{subsection.5.1.2}%
+\contentsline {paragraph}{Pandas.}{38}{subsection.5.1.2}%
+\contentsline {paragraph}{boto3 and the AWS SDK.}{38}{subsection.5.1.2}%
+\contentsline {paragraph}{Other libraries.}{38}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Databases}{38}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Cloud Platforms}{39}{subsection.5.1.4}%
+\contentsline {paragraph}{Amazon Web Services.}{39}{subsection.5.1.4}%
+\contentsline {paragraph}{Microsoft Azure.}{39}{subsection.5.1.4}%
+\contentsline {paragraph}{Google Cloud and Microsoft 365.}{39}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}AI / LLM Providers and Generative-AI Patterns}{39}{subsection.5.1.5}%
+\contentsline {paragraph}{Provider connectors.}{39}{subsection.5.1.5}%
+\contentsline {paragraph}{Vector search and embeddings.}{39}{subsection.5.1.5}%
+\contentsline {paragraph}{Agentic patterns.}{39}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Authentication Patterns}{39}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}System Architecture and Concepts}{40}{subsection.5.1.7}%
+\contentsline {paragraph}{Microservices architecture.}{40}{subsection.5.1.7}%
+\contentsline {paragraph}{REST and OpenAPI 3.0.}{40}{subsection.5.1.7}%
+\contentsline {paragraph}{Webhooks and event-driven patterns.}{40}{subsection.5.1.7}%
+\contentsline {paragraph}{gRPC.}{40}{subsection.5.1.7}%
+\contentsline {paragraph}{Containerisation and orchestration.}{40}{subsection.5.1.7}%
+\contentsline {paragraph}{Caching and performance.}{40}{subsection.5.1.7}%
+\contentsline {subsection}{\numberline {5.1.8}Testing}{40}{subsection.5.1.8}%
+\contentsline {paragraph}{Unit and integration testing with pytest.}{40}{subsection.5.1.8}%
+\contentsline {paragraph}{Live-API integration testing.}{40}{subsection.5.1.8}%
+\contentsline {paragraph}{End-to-end UI and workflow validation.}{40}{subsection.5.1.8}%
+\contentsline {subsection}{\numberline {5.1.9}Tooling and IDEs}{41}{subsection.5.1.9}%
+\contentsline {section}{\numberline {5.2}Non-Technical and Professional Skills}{41}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Communication}{41}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Code Review Etiquette}{41}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Time Management and Self-Direction}{42}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Cross-Time-Zone Collaboration}{42}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Professionalism and Ownership}{42}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.6}Curiosity and Continuous Learning}{42}{subsection.5.2.6}%
+\contentsline {subsection}{\numberline {5.2.7}Problem-Solving and Resilience}{43}{subsection.5.2.7}%
+\contentsline {subsection}{\numberline {5.2.8}Patience and Attention to Detail}{43}{subsection.5.2.8}%
+\contentsline {chapter}{\numberline {6}Life at FlowGenX AI}{44}{chapter.6}%
+\contentsline {section}{\numberline {6.1}A Remote-First, Globally Distributed Workplace}{44}{section.6.1}%
+\contentsline {section}{\numberline {6.2}My Workspace and Equipment}{45}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Daily and Weekly Cadence}{45}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}A Typical Working Day}{45}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Weekly Rhythm}{46}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Communication and Collaboration Style}{46}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Tools}{46}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Norms}{46}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Onboarding Experience}{47}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Mentorship and Learning Culture}{47}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Cross-Time-Zone Collaboration}{47}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Reflection on Remote Work as an Intern}{48}{section.6.8}%
+\contentsline {chapter}{\numberline {7}Conclusion}{49}{chapter.7}%
+\contentsline {chapter}{References}{51}{chapter*.13}%

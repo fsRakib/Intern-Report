@@ -34,6 +34,12 @@ The people I worked with most closely on a daily basis were:
     (Generative AI), my direct supervisor. Abrar bhai owned my
     onboarding, the day-to-day technical guidance, and the bulk of
     the code review on my pull requests.
+    \item \textbf{Mr.~Ashikuzzaman Abir} --- Software Engineer,
+    additional mentor. Ashik bhai supports the workflow-agent side of
+    the platform, and he was the person I went to whenever my
+    connector work touched the workflow runtime --- helping me
+    understand how a connector method becomes a callable node inside
+    a real end-to-end agent workflow.
     \item \textbf{Mr.~Nayem Islam} --- Software Engineer / AI
     Engineer working closely with the connectivity team.
     \item \textbf{Mr.~Latiful Kabir} --- Software Engineer
@@ -92,8 +98,8 @@ the project's three-tier abstraction
 \texttt{ObjManager}), the \texttt{@openapi\_endpoint} decorator, the
 dual sync/async pattern, the \texttt{ConnParams} convention, and the
 metadata-generation pipeline that takes a connector from source code
-to UI. I read the project's \texttt{README.md} and \texttt{CLAUDE.md}
-end-to-end, then reverse-engineered an existing connector
+to UI. I read the project's internal documentation end-to-end, then
+reverse-engineered an existing connector
 (PostgreSQL) to see how all the pieces fit together in practice.
 
 The most important conceptual insight from this period was that a
@@ -230,7 +236,7 @@ repository.
 \midrule
 Nov 20 -- Nov 30, 2025 & Weaviate; Discord; Notion (full setup with env-var support and decorators); Perplexity AI; QuickBooks (initial); Uber; Shopify (test pass); Google Chat fix; S\&P Global; ClickUp; MongoDB; Stripe (initial). \\
 \addlinespace
-Dec 1 -- Dec 14, 2025 & Elasticsearch (with Windows encoding fix); Datadog; Milvus; LaunchDarkly; Zoho CRM; FreshDesk; Yelp; Stripe; FreshBooks; Xero; GitLab; GitHub; Zoho Desk; Apollo.io; Zoom; WordPress; Customer.io; BambooHR; Lever; OneDrive; SharePoint; FreshBooks endpoint refactor. Merged PRs \#55, \#74, \#78, \#87. \\
+Dec 1 -- Dec 14, 2025 & Elasticsearch (with Windows encoding fix); Datadog; Milvus; LaunchDarkly; Zoho CRM; FreshDesk; Yelp; Stripe; FreshBooks; Xero; GitLab; GitHub; Zoho Desk; Apollo.io; Zoom; WordPress; Customer.io; BambooHR; Lever; OneDrive; SharePoint; FreshBooks endpoint refactor. \\
 \addlinespace
 Dec 15 -- Dec 31, 2025 & AWS S3 (bucket policies, versioning, multipart uploads); MySQL upgrades (truncate / update / upsert); PostgreSQL enhancements; Pinecone; Tavily; Exa; SerpAPI; AWS RDS PostgreSQL; AWS RDS MySQL; dbt-cloud; OpenWeatherMap; Freshsales; Zendesk Sell; Auth0; Massive; MSSQL with full CRUD; Azure Blob Storage; Azure SQL Server (firewall + retry); Groq; OpenAI. \\
 \addlinespace
@@ -325,179 +331,6 @@ authentications.
     on the FlowGenX platform.}
     \label{fig:connected-apps}
 \end{figure}
-
-\section{Selected Deep-Dives}
-Of the 90+ connectors I delivered, six stand out either for their
-size, their architectural complexity, or the depth of the lessons
-they offered. I describe each one's requirements, my approach, the
-challenges I faced, and the final outcome --- the same template the
-team uses internally for retrospectives.
-
-\subsection{AWS Rekognition: 75 Methods Across Five Domains}
-\paragraph{Requirements.}
-Expose the full Amazon Rekognition surface area through FlowGenX so
-that end users can build vision-driven workflows --- detecting
-labels, faces, text, moderation flags, and so on --- across both
-single-image calls and long-running asynchronous video analyses.
-
-\paragraph{My approach.}
-I broke the API surface into five logical domains: image analysis,
-video analysis, face management (collections, indexing, searching),
-custom labels (project, project version, dataset management), and
-stream processors. For each domain I implemented its methods in a
-dedicated module under the connector folder, all sharing the same
-\texttt{ConnParams} schema (AWS access key, secret key, region) and
-\texttt{Manager} class. The async-video methods explicitly returned
-job identifiers so that downstream workflow steps could poll for
-results, in line with how Rekognition itself models long-running
-work.
-
-\paragraph{Challenges.}
-The most subtle issue was the breadth: 75 methods is large enough
-that small inconsistencies (parameter naming, response shape,
-default values) compound into a confusing user experience. To
-prevent this I authored a short style guide for the connector
-itself --- ``every job-id parameter is called \texttt{job\_id}'',
-``every output is returned as the raw boto3 response with the
-top-level \texttt{ResponseMetadata} stripped'', and so on --- and
-applied it uniformly across all 75 methods.
-
-\paragraph{Outcome.}
-A single connector that gives FlowGenX users access to the entire
-Rekognition catalogue under a uniform interface. I followed up with
-a UI Endpoint Test Reference document so that end users have a
-ready-made cookbook for the most common image and video flows.
-
-\subsection{AWS Textract: A Sync/Async Restructure}
-\paragraph{Requirements.}
-Add Textract for document analysis (forms, tables, text extraction,
-receipt and invoice analysis) and queries, plus management of
-\emph{adapters} (Textract's mechanism for fine-tuning).
-
-\paragraph{My approach.}
-Rather than a flat list of 23 methods, I split the connector into
-three sub-modules: synchronous document analysis, asynchronous
-document analysis, and adapter management. This made the connector
-significantly easier to navigate at code-review time and meant that
-end users in the UI saw a logically ordered method list grouped by
-intent.
-
-\paragraph{Challenges.}
-The interesting subtlety here is that the synchronous methods accept
-inline image bytes and return results immediately, whereas the
-asynchronous methods accept S3 references and return job identifiers
-that have to be polled separately. Modelling these two execution
-shapes uniformly --- without one leaking into the other --- was a
-small but instructive design exercise.
-
-\paragraph{Outcome.}
-A 23-method Textract connector with a clean separation of concerns
-and a corresponding UI Endpoint Test Reference document, ready for
-production use.
-
-\subsection{Apify: 69 Methods With Long-Running Webhook Patterns}
-\paragraph{Requirements.}
-Expose Apify --- a platform for running web crawlers, scrapers, and
-browser-automation actors --- through FlowGenX so that end users can
-trigger actor runs, retrieve dataset items, manage tasks, and
-configure webhooks.
-
-\paragraph{My approach.}
-The connector ended up with 69 methods organised around Apify's six
-core resources (Actors, Tasks, Runs, Datasets, Key-Value Stores,
-Webhooks). Two design choices were specific to this connector:
-first, support for \emph{wait-for-run} semantics so that a workflow
-step could optionally block until an actor's run finished; and
-second, first-class webhook configuration so that long-running runs
-could push completion events back to FlowGenX rather than being
-polled.
-
-\paragraph{Challenges.}
-The wait-for-run feature exposes a long-running behaviour that does
-not naturally fit either the synchronous or the asynchronous mould
-of the rest of the framework. I implemented it as a synchronous
-method with a configurable timeout, falling back to returning the
-run identifier if the timeout elapsed --- giving the workflow author
-both ergonomics and safety.
-
-\paragraph{Outcome.}
-A 69-method Apify connector that supports both fire-and-forget and
-wait-for-completion semantics across all of Apify's core resources.
-
-\subsection{QuickBooks: OAuth2 With Access-Token Refresh}
-\paragraph{Requirements.}
-Add QuickBooks Online for accounting workflows --- customers,
-invoices, payments, vendors. The challenge was not the surface area
-but the authentication: QuickBooks uses OAuth 2.0 with short-lived
-access tokens that must be refreshed periodically against Intuit's
-auth server.
-
-\paragraph{My approach.}
-I implemented the standard OAuth 2.0 authorisation-code flow inside
-the connector, persisting the resulting refresh token alongside the
-connection record. On every API call, the connector checks whether
-the cached access token is still valid, and if not, transparently
-refreshes it using the stored refresh token before retrying the
-call. The refresh logic is encapsulated in a single helper so that
-every endpoint benefits from it without opting in.
-
-\paragraph{Challenges.}
-The first version had a subtle bug in the OAuth callback flow that
-caused redirect-URI mismatches in production. I worked through this
-with the team and shipped a fix that correctly round-trips the state
-parameter and resolves the redirect URI against the platform's
-canonical base URL.
-
-\paragraph{Outcome.}
-A QuickBooks connector that survives long-running sessions without
-401 errors, plus a generalised pattern for OAuth2 access-token
-refresh that other connectors (notably LinkedIn Sales Navigator)
-later reused.
-
-\subsection{Anthropic: Files API and the New Skills API}
-\paragraph{Requirements.}
-Expose the full Anthropic developer surface --- messages, the batch
-API, models, the Files API, and the newly released Skills API ---
-through FlowGenX so that end users can build agents on Claude with
-tool-use, file inputs, and skill composition.
-
-\paragraph{My approach.}
-The first cut of the Anthropic connector mixed the Files and
-Skills surfaces, which was confusing because they have different
-lifecycles and very different authorisation models. I restructured
-the connector into clearly labelled sub-modules for Messages, Batch,
-Models, Files, and Skills. The reorganisation made the OpenAPI
-output significantly cleaner and made the resulting UI much easier
-for end users to navigate.
-
-\paragraph{Outcome.}
-A clean, modular Anthropic connector that exposes the entire
-developer surface and is ready for the next API additions Anthropic
-ships.
-
-\subsection{Octagon, Harness, and SonarQube: Heavy-Surface Connectors}
-\paragraph{Requirements.}
-Expose three more connectors with substantial surface areas:
-\textbf{Octagon} (15 financial-research AI agents),
-\textbf{Harness} (46 methods spanning the V1 and legacy DevOps
-APIs), and \textbf{SonarQube} (34 methods spanning the SonarQube
-Server and SonarCloud APIs).
-
-\paragraph{My approach.}
-Each one followed the same playbook: read the API documentation
-thoroughly, group methods by sub-resource, write per-method modules
-under a single \texttt{Manager}, and use the integration test
-script to validate every endpoint with real credentials. Because
-all three of these connectors expose more than a dozen methods
-each, I wrote them with the discipline of treating each
-\texttt{response\_sample} as a first-class deliverable so that the
-end-user experience in the UI would be ``click Send and it just
-works.''
-
-\paragraph{Outcome.}
-Three substantial connectors landed in the same six-week window and
-together added more than 95 callable methods to the FlowGenX
-catalogue.
 
 \section{Bug Fixes and Reliability Work}
 Alongside new feature delivery I shipped a number of reliability

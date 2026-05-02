@@ -33,15 +33,12 @@ orchestration frameworks. FlowGenX AI's positioning is to unify
 these two worlds: every integration becomes an intelligent tool that
 agents can discover, reason about, and use.
 
-% TODO (CEO confirmation): founding year, employee count globally,
-% number of engineers based in Bangladesh, registered entity status
-% in Bangladesh, funding stage. Placeholders below until confirmed.
-At the time of writing, FlowGenX AI operates as a globally distributed
-engineering team with team members in the United States and Bangladesh,
-collaborating remotely through Google Chat and Google Meet. The
-specific employee count, founding year, and Bangladesh entity status
-will be incorporated into the final version of this report following
-direct confirmation from the leadership team.
+FlowGenX AI operates as a globally distributed organisation, with
+team members in the United States and Bangladesh collaborating
+remotely through Google Chat and Google Meet. Further internal
+details such as exact team sizes and corporate structure are not
+covered in this report in keeping with the company's confidentiality
+policy.
 
 \section{Vision}
 The company's vision, taken verbatim from its \emph{About} page, is:
@@ -199,9 +196,9 @@ on directly.
     React and Next.js.
     \item \textbf{Configuration and data exchange:} JSON, YAML, and
     OpenAPI 3.0 specifications.
-    \item \textbf{Database queries:} SQL across PostgreSQL and
-    multiple other relational engines (MySQL, MSSQL, Snowflake,
-    Azure SQL, etc.).
+    \item \textbf{Database queries:} SQL, used to query the platform's
+    own PostgreSQL metadata store and to implement the database-family
+    connectors.
 \end{itemize}
 
 \subsection{Backend Frameworks and Libraries}
@@ -219,78 +216,71 @@ on directly.
     parameterised configuration of components.
     \item \textbf{HTTP and async I/O:} \emph{requests}, \emph{httpx},
     and \emph{asyncio}.
-    \item \textbf{Cloud SDKs:} \emph{boto3} (AWS), the official Azure
-    SDK for Python, and Google Cloud client libraries.
 \end{itemize}
 
 \subsection{Frontend Frameworks and Libraries}
 \begin{itemize}[leftmargin=*]
     \item \textbf{Framework:} \emph{Next.js} on top of \emph{React}
-    powers the FlowGenX web application (the \texttt{flowgenx-nextjs-V2}
-    repository).
+    powers the FlowGenX web application where users design workflows, configure connectors, and chat with agents.
     \item \textbf{Runtime:} Node.js.
     \item \textbf{Editor experience:} The Monaco editor is integrated
     for in-browser code and expression editing.
 \end{itemize}
 
-\subsection{Databases and Search Technologies}
-The platform supports a wide variety of data backends through the
-connectivity framework I worked on.
+\subsection{Platform Data Stores}
+The platform itself runs on a deliberately small set of data stores.
+These are the databases that hold FlowGenX's own state --- not the
+many third-party data sources that users can connect through the
+integration catalogue (those are described separately in Section
+\ref{sec:integration-catalogue}).
 
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Relational:} PostgreSQL (also the platform's own
-    metadata store), MySQL, Microsoft SQL Server, Azure SQL Server,
-    AWS RDS PostgreSQL and MySQL, Snowflake.
-    \item \textbf{Document and NoSQL:} MongoDB.
-    \item \textbf{Search:} Elasticsearch, Typesense.
-    \item \textbf{Vector databases:} Pinecone, Weaviate, Milvus
-    (used both as connectors and to support the platform's own
-    Knowledge Base feature).
+    \item \textbf{Primary metadata store:} \emph{PostgreSQL}. Holds
+    the connector registry, authentication configurations, workflow
+    definitions, and other operational state.
+    \item \textbf{Vector store for the Knowledge Base feature:} the
+    Knowledge Base pillar of the platform stores document embeddings
+    in a vector database (with support for multiple back-ends such as
+    \emph{Pinecone}, \emph{Weaviate}, and \emph{Milvus}) so that
+    Retrieval-Augmented Generation (RAG) queries from agents can
+    return grounded, source-cited answers.
 \end{itemize}
 
 \subsection{Cloud Infrastructure and DevOps}
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Cloud providers:} Amazon Web Services (S3, RDS,
-    Textract, Rekognition, EC2), Microsoft Azure (Blob Storage,
-    Data Lake, SQL Server), Google Cloud Platform.
-    \item \textbf{Containerisation and orchestration:} Docker for
-    containerisation, Kubernetes for orchestration, and Helm for
-    Kubernetes packaging.
-    \item \textbf{Infrastructure as Code:} Terraform.
-    \item \textbf{API documentation:} OpenAPI / Swagger,
-    auto-generated from connector source code.
+    \item \textbf{Cloud providers (for hosting the platform itself):}
+    Amazon Web Services and Microsoft Azure are the primary
+    deployment targets.
+    \item \textbf{Containerisation and orchestration:} \emph{Docker}
+    for containerisation, \emph{Kubernetes} for orchestration, and
+    \emph{Helm} for Kubernetes packaging.
+    \item \textbf{Infrastructure as Code:} \emph{Terraform}.
+    \item \textbf{API specifications:} \emph{OpenAPI 3.0} (Swagger),
+    auto-generated from the connector source code.
 \end{itemize}
 
-\subsection{AI / LLM Providers and Generative AI Stack}
-A direct implication of being an agentic platform is first-class
-support for many AI providers. Through native connectors, the platform
-integrates with:
+\subsection{Agentic Platform Primitives}
+The agentic stack of the platform is built on a small set of design
+patterns and protocols rather than on any single LLM vendor.
+Specific large language models are accessed \emph{through the
+integration catalogue} (Section \ref{sec:integration-catalogue}) ---
+they are interchangeable tools, not part of FlowGenX's own
+technology stack.
 
 \begin{itemize}[leftmargin=*]
-    \item OpenAI (assistants, models, threads).
-    \item Anthropic (messages, batch, files, models, and the new
-    Skills API).
-    \item Google Gemini and Vertex AI.
-    \item xAI, Groq, DeepSeek, Perplexity AI.
-    \item AWS-native AI services: Textract for document analysis and
-    Rekognition for vision.
-    \item Search and research providers: Tavily, Exa, SerpAPI.
-\end{itemize}
-
-On top of these providers, the platform implements multi-agent
-orchestration patterns (ReAct, Supervisor, Swarm, and Deep), the
-Model Context Protocol (MCP) for tool exposure, and an
-Agent-to-Agent (A2A) protocol for inter-agent communication.
-
-\subsection{Authentication and Identity}
-The connectivity framework supports the full spectrum of authentication
-patterns used by modern APIs:
-
-\begin{itemize}[leftmargin=*]
-    \item OAuth 2.0 with refresh-token flows.
-    \item API Key and Bearer Token authentication.
-    \item HTTP Basic Authentication.
-    \item AWS IAM credentials and signed-request flows.
+    \item \textbf{Multi-agent orchestration patterns:} \emph{ReAct},
+    \emph{Supervisor}, \emph{Swarm}, and \emph{Deep} agent patterns,
+    all supported as first-class primitives.
+    \item \textbf{Model Context Protocol (MCP):} an open protocol used
+    to expose every connector as a standardised tool that any agent
+    can discover and call. Arbitrary external APIs can also be
+    imported and \emph{auto-converted} into MCP tools.
+    \item \textbf{Agent-to-Agent (A2A) protocol:} used for discovery
+    and synchronous or asynchronous communication between agents.
+    \item \textbf{Vector-RAG pipeline:} the Knowledge Base feature
+    combines document ingestion, semantic chunking, embedding,
+    vector search, and source citation to ground agent responses in
+    real source material.
 \end{itemize}
 
 \subsection{Engineering Tooling}
@@ -308,7 +298,83 @@ patterns used by modern APIs:
     \item \textbf{Communication:} Google Chat and Google Meet.
 \end{itemize}
 
+\section{Integration Catalogue}
+\label{sec:integration-catalogue}
+
+A defining feature of the FlowGenX platform is its catalogue of more
+than \textbf{two hundred natively built connectors} that customers
+can use to integrate third-party services into their workflows. It
+is important to draw a clear conceptual line: \emph{the catalogue is
+not part of FlowGenX's own technology stack.} The technologies
+listed in Section 2.7 are what FlowGenX engineers use to
+\emph{build} the platform. The integrations listed here are what
+\emph{customers} can choose to plug \emph{into} the platform when
+they design their own workflows.
+
+Each connector is implemented as a small, self-contained
+plug-in inside the company's connectivity layer (the
+\texttt{runtime\_connectivity} package described in Section
+\ref{sec:internal-architecture}) and exposed through the platform UI
+as a configurable building block. End users decide which connectors
+to authenticate, which methods to call, and how to compose them
+inside their workflows; FlowGenX engineers maintain the catalogue
+itself, but no individual connector is required for the platform to
+function.
+
+The catalogue spans the following functional categories:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Databases.} Relational engines (PostgreSQL, MySQL,
+    Microsoft SQL Server, Snowflake, Azure SQL Server, AWS RDS for
+    PostgreSQL and MySQL), document stores (MongoDB), search engines
+    (Elasticsearch, Typesense), and vector databases (Pinecone,
+    Weaviate, Milvus).
+    \item \textbf{Cloud storage and file platforms.} Amazon S3,
+    Azure Blob Storage, Azure Data Lake, Microsoft OneDrive, and
+    Microsoft SharePoint.
+    \item \textbf{AI / LLM providers.} OpenAI, Anthropic, Google
+    Gemini, Vertex AI, xAI, Groq, DeepSeek, Perplexity AI, and the
+    AWS-native AI services Textract (document analysis) and
+    Rekognition (computer vision).
+    \item \textbf{Search, market and research data.} Tavily, Exa,
+    SerpAPI, OpenFIGI, FactSet, S\&P Global, Crunchbase, AlphaSense,
+    and Octagon.
+    \item \textbf{CRM, sales engagement and prospecting.} Apollo.io,
+    Attio, Outreach, SalesLoft, Gong, Chorus, 6sense, LinkedIn Sales
+    Navigator, Zoho CRM, Zendesk Sell, and Zoho Desk.
+    \item \textbf{Finance and accounting.} Stripe, QuickBooks, Xero,
+    FreshBooks, Zoho Books, Zoho Inventory, Microsoft Dynamics 365
+    Business Central, and dbt-cloud.
+    \item \textbf{Marketing and email.} Mailchimp, Customer.io,
+    Instantly, NeverBounce, and Zoho Campaigns.
+    \item \textbf{Productivity, collaboration and meetings.}
+    Notion, ClickUp, Linear, Discord, Zoom, Google Meet, Google
+    Chat, Google Forms, Google Tasks, Typeform, Eventbrite, and
+    Supabase.
+    \item \textbf{Helpdesk and IT service management.} FreshDesk,
+    Freshservice, HelpScout, and Jira Service Management.
+    \item \textbf{HR, recruiting and payroll.} BambooHR, Lever,
+    Ashby, Rippling, and Gusto.
+    \item \textbf{DevOps and engineering.} GitHub, GitLab, GitHub
+    Actions, Harness, SonarQube, LaunchDarkly, and Datadog.
+    \item \textbf{Identity and access.} Auth0 and Okta.
+    \item \textbf{Healthcare.} EPIC FHIR.
+    \item \textbf{Communication and social.} Twitter/X, LINE
+    Messaging, WordPress, Shopify, Yelp, and Uber.
+    \item \textbf{Other utilities.} Apify, OpenWeatherMap, and
+    Massive.
+\end{itemize}
+
+To accommodate the diversity of these services, every connector
+implements one or more of the standard authentication patterns used
+by modern APIs --- OAuth~2.0 with refresh-token flows, API key or
+bearer-token authentication, HTTP basic authentication, and AWS IAM
+credential flows. The detailed account of which connectors I
+personally designed, implemented, and shipped during the internship
+is given in Chapter~\ref{ch:activities}.
+
 \section{Internal Architecture (At a High Level)}
+\label{sec:internal-architecture}
 The platform is organised across four primary internal repositories,
 each with a clear single responsibility:
 
@@ -346,7 +412,6 @@ each with a clear single responsibility:
 \end{itemize}
 
 \section{Office Environment and Working Style}
-% TODO (CEO confirmation): Bangladesh entity status, exact team sizes
 FlowGenX AI operates as a remote-first organisation with engineers
 based in the United States and Bangladesh. My own internship was a
 fully remote engagement from Dhaka, working on my personal laptop.
@@ -388,12 +453,6 @@ months at FlowGenX AI are:
     Mr.~Abrar Bin Rofique reviewed every pull request thoroughly and
     explained the \emph{why} behind every suggestion, but never
     micromanaged the \emph{how}. The same was true of my team lead.
-
-    \item \textbf{Quality through automation.} Pre-commit hooks
-    running Black, isort, and Ruff catch style issues before they
-    reach review. Pull requests cannot be merged without passing
-    these checks. The result is a codebase that is genuinely uniform
-    across many contributors.
 
     \item \textbf{Innovation and curiosity.} Engineers are
     encouraged to learn and to bring back new patterns. During my

@@ -1,0 +1,13 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces The FlowGenX AI visual workflow editor.}}{8}{figure.caption.5}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces MCP Playground for end-to-end testing of connector tools.}}{20}{figure.caption.7}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Authentication configuration page driven by \texttt {auth\_config.json}.}}{28}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces The FlowGenX AI app gallery, populated by connectors delivered through \texttt {runtime\_connectivity}.}}{31}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces End-user view of connected apps (active authentications) on the FlowGenX platform.}}{32}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Per-connector endpoint testing UI used during validation.}}{34}{figure.caption.12}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

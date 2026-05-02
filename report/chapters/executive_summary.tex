@@ -1,70 +1,39 @@
 \chapter*{Executive Summary}
 \addcontentsline{toc}{chapter}{Executive Summary}
 
-This report documents my internship experience at \textbf{FlowGenX AI},
-a Silicon Valley-based software company building an
-\emph{Agentic Integration Platform} that lets enterprises design,
-orchestrate, and deploy AI agents and workflows from a single,
-no-/low-code interface. The internship was undertaken as the partial
-fulfilment of the SWE--420 Internship course of the Bachelor of Science
-in Software Engineering program offered by the Department of Software
-Engineering, Institute of Information and Communication Technology
-(IICT), Shahjalal University of Science and Technology, Sylhet.
+This report summarises my internship at \textbf{FlowGenX AI}, a San
+Francisco-based software company building an \emph{Agentic Integration
+Platform} for designing, orchestrating, and deploying AI agents and
+workflows through a single no-/low-code interface. The internship was
+completed as the partial fulfilment of the SWE--420 Internship course
+of the Bachelor of Science in Software Engineering programme at IICT,
+Shahjalal University of Science and Technology, Sylhet.
 
-\vspace{0.2cm}
+I worked at FlowGenX AI as a \emph{Full Stack Software Engineer ---
+Generative AI (Intern)} from \textbf{10 November 2025} to
+\textbf{02 May 2026}, full-time and remotely from Bangladesh. From
+the first week I was placed on the connectivity team and trusted with
+production-grade work that ships to real users on the platform.
 
-I joined FlowGenX AI as a \emph{Full Stack Software Engineer --
-Generative AI (Intern)} on \textbf{10 November 2025} and worked
-full-time, remotely from Bangladesh, through \textbf{02 May 2026} ---
-a tenure of approximately five and a half months that exceeded the
-four-month minimum stated in my offer letter. From the first week, I
-was treated as a contributing member of the connectivity team and
-trusted with production-grade work that ships to real users on the
-FlowGenX platform.
+The bulk of my contribution went to the \texttt{runtime\_connectivity}
+project --- FlowGenX's unified Python framework that exposes more than
+two hundred external services through a single standardised interface.
+Over five and a half months I authored \textbf{178 commits} and
+delivered \textbf{more than ninety production-ready connectors}, each
+implemented end-to-end against the project's three-tier abstraction,
+validated by dedicated integration test scripts, and accompanied by
+auto-generated metadata. Beyond feature work I shipped reliability
+fixes (OAuth 2.0 refresh, retry logic, encoding fixes) and authored
+UI Endpoint Test Reference documentation for many high-value
+connectors.
 
-\vspace{0.2cm}
-
-The bulk of my contribution was to FlowGenX's \texttt{runtime\_connectivity}
-project --- a unified Python framework that exposes more than two
-hundred third-party services (databases, cloud storage, SaaS APIs, AI
-providers, and more) through a single standardised interface. Across
-the internship I authored 178 commits and delivered more than 90
-production-ready connectors, each implemented end-to-end against the
-project's three-tier abstraction (\texttt{BaseManager} →
-\texttt{DBManager}/\texttt{FSManager}/\texttt{ObjManager}), validated
-through dedicated integration test scripts, and accompanied by
-auto-generated OpenAPI metadata that drives the platform's frontend.
-Beyond feature work, I owned several reliability improvements (OAuth2
-token-refresh, retry logic, encoding fixes), refactoring efforts (the
-DataFrame/list duality across SQL connectors, a clean separation of the
-Anthropic Files and Skills APIs, the AWS Textract reorganisation), and
-documentation deliverables (UI Endpoint Test Reference docs for many
-high-value connectors).
-
-\vspace{0.2cm}
-
-The internship also exposed me to the engineering culture of a fast-paced,
-globally distributed startup: a disciplined feature-branch Git workflow,
-disciplined code review, automated metadata regeneration pipelines,
-clean code enforced through Black/isort/Ruff and pre-commit hooks,
-\texttt{uv}-managed Python environments, and asynchronous Google Chat /
-Google Meet collaboration across the United States and Bangladesh
-timezones. Beyond \texttt{runtime\_connectivity}, I gained working
-exposure to Apache Airflow (used by FlowGenX's workflow engine),
-FastAPI, the Model Context Protocol (MCP), and the Agent-to-Agent (A2A)
-communication patterns at the heart of the company's agentic stack.
-
-\vspace{0.2cm}
-
-This report is organised into seven chapters. Chapter~1 introduces the
-report and its scope. Chapter~2 profiles FlowGenX AI as an organisation.
-Chapter~3 describes the software engineering process I followed at the
-company. Chapter~4 narrates the internship activities themselves,
-including the onboarding learning phase and the live project work.
-Chapter~5 catalogues the technical and non-technical skills I acquired.
-Chapter~6 reflects on what daily life as a remote intern at a
-distributed startup looked like. Chapter~7 concludes the report with a
-personal reflection on the experience and what it means for my future
-career.
-
-\newpage
+The internship also exposed me to the engineering culture of a
+globally distributed startup --- a disciplined feature-branch Git
+workflow, peer-reviewed pull requests, automated code-quality
+enforcement, and asynchronous collaboration across the United States
+and Bangladesh time zones --- and gave me practical exposure to
+FastAPI, Apache Airflow, the Model Context Protocol (MCP), and the
+Agent-to-Agent (A2A) patterns at the heart of FlowGenX's agentic
+stack. The remaining chapters present the company profile, the
+engineering process, the internship activities, the skills acquired,
+remote-work reflections, and a concluding reflection.

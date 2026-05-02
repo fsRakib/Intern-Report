@@ -8,14 +8,11 @@ code-review workflow, the testing strategy, the metadata-generation
 pipeline that takes a connector from source code to a live UI, and
 the supporting toolchain.
 
-The descriptions in this chapter are drawn from the project's internal
-\texttt{README.md} and \texttt{CLAUDE.md} files (the latter being the
-team's onboarding-and-conventions document for AI-assisted coding
-environments) and from my own day-to-day experience working inside the
-process for five and a half months.
+The descriptions in this chapter are drawn from the project's
+internal documentation and from my own day-to-day experience working
+inside the process for five and a half months.
 
 \section{Development Methodology}
-% TODO (CEO confirmation): formal methodology name, sprint cadence
 FlowGenX AI follows a modern agile-inspired engineering process that
 combines lightweight planning, asynchronous communication, and
 continuous integration. Work is tracked on a \emph{ClickUp} board
@@ -157,7 +154,6 @@ methods are wrapped using two utilities defined in
 \end{itemize}
 
 \subsection{Code Review and Pull Requests}
-% TODO (CEO confirmation): exact number of approvals required
 Once a connector is implementation-complete, I would push the feature
 branch and open a pull request against \texttt{dev}. Pull requests
 follow a disciplined commit-message convention,
@@ -214,32 +210,7 @@ confirm it actually composes inside a real end-to-end workflow
     \label{fig:mcp-playground}
 \end{figure}
 
-\subsection{Metadata Generation Pipeline}
-A defining characteristic of the connectivity framework is that the
-runtime, the auth-configuration UI, and the metadata catalogue are
-all derived from the connector source code by a deterministic
-three-step pipeline:
-
-\begin{enumerate}[leftmargin=*]
-    \item \texttt{generate\_openapi\_spec.py} introspects the
-    \texttt{@openapi\_endpoint}-decorated methods and produces an
-    \texttt{openapi\_spec.json} for the connector.
-    \item \texttt{generate\_auth\_config.py} introspects the
-    \texttt{ConnParams} Pydantic schema (and the
-    \texttt{json\_schema\_extra} UI metadata on each field) and
-    produces an \texttt{auth\_config.json} that drives the auth-form
-    UI.
-    \item \texttt{populate\_connector\_db.py} pushes the resulting
-    metadata into the platform's PostgreSQL store, after which the
-    connector is immediately discoverable in the FlowGenX UI.
-\end{enumerate}
-
-This pipeline is run for every new connector and re-run whenever
-schemas, examples, or methods change. It is the bridge that turns
-``code on disk'' into ``connector visible in the product''.
-
 \subsection{Deployment to Development, Staging, and Production}
-% TODO (CEO confirmation): exact environment names + cadence
 After a pull request is merged into \texttt{dev}, the change is
 deployed to a development environment, where the team performs API
 testing and end-to-end workflow validation. Once stable, the change
@@ -249,7 +220,6 @@ Docker and orchestrated with Kubernetes, with infrastructure
 provisioned through Helm charts and Terraform.
 
 \subsection{Hotfixes}
-% TODO (CEO confirmation): formal hotfix process
 Urgent production bugs are addressed outside the normal sprint
 cadence through small, targeted patches that follow the same
 review-and-test discipline as regular features but with a faster
@@ -277,18 +247,6 @@ testing checklist (Implementation / API / MCP Playground / Workflow).
 \subsection{Code Review}
 \textbf{GitHub Pull Requests}. All review feedback happens inline in
 the PR. Approvals are required before merging.
-
-\subsection{Code Quality and Formatting}
-\begin{itemize}[leftmargin=*]
-    \item \textbf{Black}, with a 79-character line length, targeting
-    Python 3.11+.
-    \item \textbf{isort}, configured with the \emph{black} profile.
-    \item \textbf{Ruff}, with the rule sets
-    \texttt{E,W,F,I,C,B,UP,N,YTT,S} selected and
-    \texttt{E501,S101,D100--D104} ignored.
-    \item \textbf{Pre-commit hooks} that enforce all of the above
-    automatically.
-\end{itemize}
 
 \subsection{Package Management}
 \textbf{uv} --- a fast Python package manager that replaces
@@ -326,7 +284,3 @@ and logging:
     \texttt{component} and \texttt{method} context, so log lines
     can be filtered cleanly per connector and per endpoint at runtime.
 \end{itemize}
-
-These conventions matter at scale: with more than two hundred
-connectors live in the runtime, uniform error and log shapes are what
-let the operations side of the company stay sane.
