@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 12:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -680,10 +680,10 @@ l.59 \newpage
 
 
 
-] [4])
+])
 \openout2 = `chapters/executive_summary.aux'.
 
- (chapters/executive_summary.tex) [5
+ (chapters/executive_summary.tex) [4
 
 
 
@@ -738,13 +738,8 @@ l.64 \end{quote}
 
 
 
-]
-pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.121 
-       [5]
-<figures/screenshots/workflow_editor.jpg, id=551, 1152.10425pt x 555.87675pt>
+] [5]
+<figures/screenshots/workflow_editor.jpg, id=548, 1152.10425pt x 555.87675pt>
 File: figures/screenshots/workflow_editor.jpg Graphic file (type jpg)
 <use figures/screenshots/workflow_editor.jpg>
 Package pdftex.def Info: figures/screenshots/workflow_editor.jpg  used on input line 141.
@@ -822,7 +817,7 @@ Overfull \hbox (34.11736pt too wide) in paragraph at lines 158--167
 \T1/lmr/m/n/12 (-20) wrote a ded-i-cated in-te-gra-tion test script un-der \T1/lmtt/m/n/12 scripts/ \T1/lmr/m/n/12 (-20) named \T1/lmtt/m/n/12 test_<connector>_connector.py\T1/lmr/m/n/12 (-20) .
  []
 
-<figures/screenshots/MCP_playground.jpg, id=604, 1149.69525pt x 555.87675pt>
+<figures/screenshots/MCP_playground.jpg, id=601, 1149.69525pt x 555.87675pt>
 File: figures/screenshots/MCP_playground.jpg Graphic file (type jpg)
 <use figures/screenshots/MCP_playground.jpg>
 Package pdftex.def Info: figures/screenshots/MCP_playground.jpg  used on input line 179.
@@ -868,7 +863,7 @@ Overfull \hbox (8.66315pt too wide) in paragraph at lines 154--161
  []
 
 [21]
-<figures/screenshots/Auth_config.jpg, id=638, 1150.89975pt x 557.6835pt>
+<figures/screenshots/Auth_config.jpg, id=635, 1150.89975pt x 557.6835pt>
 File: figures/screenshots/Auth_config.jpg Graphic file (type jpg)
 <use figures/screenshots/Auth_config.jpg>
 Package pdftex.def Info: figures/screenshots/Auth_config.jpg  used on input line 200.
@@ -877,18 +872,18 @@ Package pdftex.def Info: figures/screenshots/Auth_config.jpg  used on input line
 Overfull \vbox (176.86389pt too high) has occurred while \output is active []
 
  [23]
-<figures/screenshots/APP_gallery.jpg, id=654, 1150.89975pt x 557.08125pt>
+<figures/screenshots/APP_gallery.jpg, id=651, 1150.89975pt x 557.08125pt>
 File: figures/screenshots/APP_gallery.jpg Graphic file (type jpg)
 <use figures/screenshots/APP_gallery.jpg>
 Package pdftex.def Info: figures/screenshots/APP_gallery.jpg  used on input line 254.
 (pdftex.def)             Requested size: 371.04778pt x 179.6042pt.
-<figures/screenshots/Connected_apps.jpg, id=655, 1149.69525pt x 555.2745pt>
+<figures/screenshots/Connected_apps.jpg, id=652, 1149.69525pt x 555.2745pt>
 File: figures/screenshots/Connected_apps.jpg Graphic file (type jpg)
 <use figures/screenshots/Connected_apps.jpg>
 Package pdftex.def Info: figures/screenshots/Connected_apps.jpg  used on input line 262.
 (pdftex.def)             Requested size: 371.04778pt x 179.19963pt.
  [24 <./figures/screenshots/APP_gallery.jpg> <./figures/screenshots/Connected_apps.jpg>]
-<figures/screenshots/paricular_connector_endpoint_test.jpg, id=662, 1143.0705pt x 551.661pt>
+<figures/screenshots/paricular_connector_endpoint_test.jpg, id=659, 1143.0705pt x 551.661pt>
 File: figures/screenshots/paricular_connector_endpoint_test.jpg Graphic file (type jpg)
 <use figures/screenshots/paricular_connector_endpoint_test.jpg>
 Package pdftex.def Info: figures/screenshots/paricular_connector_endpoint_test.jpg  used on input line 330.
@@ -965,17 +960,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 215418C6D2122E14E5F10DFBE4660364;17872.
  ) 
 Here is how much of TeX's memory you used:
- 18216 strings out of 467690
- 300206 string characters out of 5414967
+ 18220 strings out of 467690
+ 300252 string characters out of 5414967
  749128 words of memory out of 5000000
  46529 multiletter control sequences out of 15000+600000
- 687687 words of font info for 190 fonts, out of 8000000 for 9000
+ 687913 words of font info for 192 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,12n,82p,1047b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (45 pages, 1938158 bytes).
+Output written on main.pdf (44 pages, 1936802 bytes).
 PDF statistics:
- 800 PDF objects out of 1000 (max. 8388607)
+ 797 PDF objects out of 1000 (max. 8388607)
  176 named destinations out of 1000 (max. 500000)
  32025 words of extra memory for PDF output out of 35830 (max. 10000000)
 
