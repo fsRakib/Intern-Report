@@ -149,7 +149,24 @@ I could read and write OpenAPI 3.0 schemas fluently.
 \paragraph{Webhooks and event-driven patterns.}
 Implemented webhook configuration for connectors such as Apify and
 participated in the broader event-driven model of the FlowGenX
-runtime.
+runtime, including the \emph{Webhook Trigger} that initiates workflow
+execution when an external system posts data to a configured HTTP
+endpoint.
+
+\paragraph{Platform-level components.}
+Beyond the connector layer, I gained a working understanding of
+several platform-level products that surround it: \emph{Agent Fabric}
+(the multi-agent orchestration runtime), \emph{Agent Gateway} (the
+governance and security plane in front of every API and agent),
+\emph{VectorVerse} (the vector-powered Knowledge Base), the
+\emph{Playground} (interactive testing surface for MCP, agent, and
+workflow modes), the \emph{API Workspace} (the unified management
+interface for OpenAPI tools and authentication), and the \emph{Data
+Compiler} (the schema-drift component that keeps long-running
+pipelines resilient to upstream change). Even where my own pull
+requests did not touch these products directly, working alongside
+them gave me an end-to-end mental model of how an agentic platform
+fits together.
 
 \paragraph{gRPC.}
 Read-level exposure through the runtime APIs codebase.

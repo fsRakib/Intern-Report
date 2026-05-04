@@ -223,51 +223,29 @@ provisioned through Helm charts and Terraform.
 Urgent production bugs are addressed outside the normal sprint
 cadence through small, targeted patches that follow the same
 review-and-test discipline as regular features but with a faster
-turnaround. During my internship I contributed to several such
-hotfixes, including the OAuth2 access-token refresh fix for
-QuickBooks, the SQL Server retry logic, the Elasticsearch Windows
-encoding fix, the Customer.io test configuration fix, and the
-Google Chat malformed-request-body fix.
+turnaround. The specific hotfixes I contributed during the
+internship are listed in Chapter~\ref{ch:activities}.
 
 \section{Development Tools}
-A summary of the tools used across the lifecycle:
-
-\subsection{Version Control}
-\textbf{Git}, hosted on \textbf{GitHub}. Work happens on isolated
-feature branches; \texttt{dev} is the integration branch and the
-source for environment promotions. Branch names are scoped per
-connector or feature (for example, \texttt{wordpress-connector},
-\texttt{Harness\_connector}, \texttt{connector/aws\_textract}).
-
-\subsection{Project Management}
-\textbf{ClickUp}. Each connector lives as a card with assignee,
-status, links to its branch and pull request, and the four-stage
+The lifecycle described above is supported by a small, consistent
+toolchain. Source code lives in \textbf{Git} on \textbf{GitHub}, with
+isolated feature branches scoped per connector and \texttt{dev} as the
+integration branch from which environment promotions flow. Tasks are
+tracked in \textbf{ClickUp}, where each connector card carries its
+assignee, status, branch and pull-request links, and the four-stage
 testing checklist (Implementation / API / MCP Playground / Workflow).
-
-\subsection{Code Review}
-\textbf{GitHub Pull Requests}. All review feedback happens inline in
-the PR. Approvals are required before merging.
-
-\subsection{Package Management}
-\textbf{uv} --- a fast Python package manager that replaces
-\texttt{pip} and \texttt{pip-tools} for both installation and
-dependency resolution. Every developer environment is created by
-\texttt{uv pip install -e ".[dev]"}.
-
-\subsection{Containerisation and Orchestration}
-\textbf{Docker} for containerisation, \textbf{Kubernetes} for
-orchestration, \textbf{Helm} for Kubernetes packaging, and
-\textbf{Terraform} for infrastructure as code.
-
-\subsection{Communication and Collaboration}
-\textbf{Google Chat} for asynchronous messaging and \textbf{Google
-Meet} for synchronous discussions. Microsoft Teams was used
-previously and was migrated away from during my tenure.
-
-\subsection{API Documentation}
+Code review happens inline on \textbf{GitHub Pull Requests}, where at
+least one approval is required before merging. Python environments
+are managed with \textbf{uv} (\texttt{uv pip install -e ".[dev]"});
+runtime services are containerised with \textbf{Docker} and
+orchestrated with \textbf{Kubernetes} (packaged via \textbf{Helm} and
+provisioned via \textbf{Terraform}). API specifications are
 \textbf{OpenAPI 3.0}, auto-generated from the
 \texttt{@openapi\_endpoint}-decorated source code through
-\texttt{generate\_openapi\_spec.py}.
+\texttt{generate\_openapi\_spec.py}. The team communicates through
+\textbf{Google Chat} (asynchronous) and \textbf{Google Meet}
+(synchronous); Microsoft Teams was used previously and was migrated
+away from during my tenure.
 
 \section{Error Handling and Logging Conventions}
 The codebase imposes a small but strict convention for error handling

@@ -12,13 +12,14 @@ engineering leadership.
 
 \section{Company Overview}
 \textbf{FlowGenX AI} is a software development company headquartered
-in \textbf{San Francisco, California} that builds a next-generation
-\emph{Agentic Integration Platform}. The platform allows enterprises
-to design, orchestrate, and deploy AI agents and workflows from a
-single, no-/low-code interface --- bringing together multi-agent
-orchestration, native protocol-level integration with hundreds of
-external services, a vector-powered knowledge base, and enterprise-grade
-security and governance into one coherent product.
+in \textbf{San Francisco, California} and founded in \textbf{2022},
+that builds a next-generation \emph{Agentic Integration Platform}.
+The platform allows enterprises to design, orchestrate, and deploy AI
+agents and workflows from a single, no-/low-code interface ---
+bringing together multi-agent orchestration, native protocol-level
+integration with hundreds of external services, a vector-powered
+knowledge base, and enterprise-grade security and governance into one
+coherent product.
 
 The company describes itself with the tagline
 \emph{``Build Agentic Workflows. Automate Any Process, Integrate Any
@@ -33,12 +34,13 @@ orchestration frameworks. FlowGenX AI's positioning is to unify
 these two worlds: every integration becomes an intelligent tool that
 agents can discover, reason about, and use.
 
-FlowGenX AI operates as a globally distributed organisation, with
-team members in the United States and Bangladesh collaborating
-remotely through Google Chat and Google Meet. Further internal
-details such as exact team sizes and corporate structure are not
-covered in this report in keeping with the company's confidentiality
-policy.
+FlowGenX AI is registered as a corporate entity in San Francisco,
+California, and operates as a globally distributed organisation
+of approximately fifteen people, with team members in the United
+States and Bangladesh collaborating remotely through Google Chat
+and Google Meet. The company does not maintain a separate
+registered entity in Bangladesh; Bangladesh-based engineers and
+interns work as remote members of the San Francisco organisation.
 
 \section{Vision}
 The company's vision, taken verbatim from its \emph{About} page, is:
@@ -97,13 +99,17 @@ The platform is organised around six functional pillars. Together they
 form what FlowGenX calls the \emph{Complete Agentic Stack}.
 
 \subsection{Multi-Agent Orchestration (Agent Fabric)}
-A first-class agentic runtime that supports the most widely used
-multi-agent design patterns out of the box --- including \textbf{ReAct},
-\textbf{Supervisor}, \textbf{Swarm}, and \textbf{Deep} agent patterns.
-Multiple agents can reason about the next step, distribute tasks
-between themselves, and collaborate in real time. Agent execution is
-observable, governable, and supports human-in-the-loop approval gates
-at any step.
+\emph{Agent Fabric} is the first-class agentic runtime of the
+platform. It supports the most widely used multi-agent design
+patterns out of the box --- including \textbf{ReAct},
+\textbf{Supervisor}, \textbf{Swarm}, and \textbf{Deep} agent patterns
+--- and provides the supporting infrastructure underneath them: an
+agent registry, a task broker, agent-to-agent (A2A) communication,
+policy evaluation, and distributed observability traces. Multiple
+agents can reason about the next step, distribute tasks between
+themselves, and collaborate in real time. Agent execution is
+observable, governable, and supports human-in-the-loop approval
+gates at any step.
 
 \subsection{Agentic Integration Engine (Integration Studio)}
 The integration substrate of the platform. It exposes more than
@@ -129,11 +135,17 @@ iteration, and full traceability across every step. Figure
     \label{fig:workflow-editor}
 \end{figure}
 
-\subsection{Intelligent Knowledge Base}
-A vector-powered Retrieval-Augmented Generation (RAG) layer with
-document ingestion, semantic search, and source citation. It
-provides agents with grounded enterprise context so that answers
-remain anchored in real source material rather than hallucinated.
+\subsection{Intelligent Knowledge Base (VectorVerse)}
+\emph{VectorVerse} is the platform's enterprise knowledge-base
+product: a vector-powered Retrieval-Augmented Generation (RAG)
+layer that brings together document ingestion, semantic search,
+collections, agent memory (episodic, semantic, and procedural),
+explainability tracing, observability metrics, and governance
+controls. It provides agents with grounded enterprise context so
+that answers remain anchored in real source material rather than
+hallucinated, and it exposes a sandbox where engineers can test
+queries against a knowledge collection before wiring it into a
+workflow.
 
 \subsection{Work AI}
 A suite of higher-level AI capabilities that sit on top of the agent
@@ -141,12 +153,63 @@ fabric and the workflow engine, intended to give end users a
 copilot-style experience for everyday automation tasks.
 
 \subsection{Security \& Governance (Agent Gateway)}
-Enterprise-grade authentication, authorisation, and rate limiting for
-every API, MCP tool, and agent. Provides full audit trails,
-field-level encryption, and consumer access controls. Agents act
-autonomously by default but always under the constraints set by the
-governance layer; human-in-the-loop approval gates can be inserted
-wherever judgement is required.
+\emph{Agent Gateway} is the enterprise-grade security and governance
+layer that sits in front of every API, MCP tool, and agent on the
+platform. It enforces multi-tenant context (tenant, environment, and
+principal headers), authentication and authorisation, policy
+evaluation, rate limiting, task-approval workflows, audit logging, and
+trace observability. Agents act autonomously by default but always
+under the constraints set by the gateway, and human-in-the-loop
+approval gates can be inserted wherever judgement is required.
+
+\section{Other Notable Platform Components}
+\label{sec:other-platform-components}
+Beyond the six headline pillars, the platform exposes a number of
+supporting components that I encountered while working on the
+connectivity layer and that are worth describing here because they
+shape how end users actually consume the platform.
+
+\subsection{Playground}
+The \emph{Playground} is the platform's interactive testing surface.
+It provides three modes --- \emph{MCP}, \emph{Agent}, and
+\emph{Workflow} --- so that engineers and end users can exercise an
+MCP tool, talk to an agent, or step through a workflow without
+having to deploy it. The MCP Playground in particular (Figure
+\ref{fig:mcp-playground}) was a tool I used routinely during
+connector development to validate that each newly shipped connector
+appeared correctly as an MCP tool and that its parameters and
+responses matched the OpenAPI specification.
+
+\subsection{Webhook Trigger}
+A \emph{Webhook Trigger} is one of the workflow's entry points: an
+HTTP endpoint that initiates workflow execution when an external
+system posts data to it. The trigger supports configurable
+authentication (none, API key, OAuth), request-payload validation,
+custom headers, CORS, rate limiting, and synchronous or asynchronous
+response modes. It is what allows FlowGenX workflows to be invoked
+from any third-party system that can fire an HTTP webhook.
+
+\subsection{API Workspace}
+The \emph{API Workspace} is the unified management interface for
+APIs and tools on the platform. It is where engineers and
+administrators import OpenAPI specifications, define new API-based
+tools, manage their authentication credentials, test endpoints, and
+expose them for consumption inside workflows. The OpenAPI metadata
+generated by the \texttt{@openapi\_endpoint}-decorated source code in
+\texttt{runtime\_connectivity} ultimately surfaces in the API
+Workspace.
+
+\subsection{Data Compiler}
+The \emph{Data Compiler} (implemented as the schema-drift component
+in \texttt{runtime\_components}) is the platform's defence against
+upstream schema change. As data flows through a workflow it
+continuously validates incoming payloads against the expected target
+schema, detects drift in column types, missing fields, and format
+deviations, and applies AI-driven corrections through a
+SchemaDriftAgent before the data reaches the downstream component.
+This makes long-running pipelines resilient to the kind of silent
+upstream changes that would otherwise cause a workflow to fail
+mid-execution.
 
 \section{Use Cases and Target Industries}
 FlowGenX AI's public use-case catalogue covers eleven distinct
