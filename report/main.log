@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  3 MAY 2026 23:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 12:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -476,7 +476,7 @@ File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 44.
+Package hyperref Info: Option `colorlinks' set `true' on input line 48.
 )
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12.
  (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
@@ -514,12 +514,12 @@ LaTeX Font Info:    ... okay on input line 12.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* h-part:(L,W,R)=(72.26999pt, 463.80795pt, 61.42993pt)
+* v-part:(T,H,B)=(61.42993pt, 722.18698pt, 61.42993pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=452.9679pt
-* \textheight=700.50687pt
+* \textwidth=463.80795pt
+* \textheight=722.18698pt
 * \oddsidemargin=0.0pt
 * \evensidemargin=0.0pt
 * \topmargin=-3.0pt
@@ -594,59 +594,53 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (
 \openout2 = `chapters/titlepage.aux'.
 
  (chapters/titlepage.tex
-<figures/sust.png, id=407, 1453.43pt x 1606.0pt>
+<figures/sust.png, id=379, 1453.43pt x 1606.0pt>
 File: figures/sust.png Graphic file (type png)
 <use figures/sust.png>
-Package pdftex.def Info: figures/sust.png  used on input line 5.
-(pdftex.def)             Requested size: 508.70811pt x 562.10843pt.
-
-Overfull \hbox (55.74022pt too wide) in paragraph at lines 5--5
- [][] 
- []
-
-[1
-
-
-{C:/Users/Rakib/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./figures/sust.png>]
-<figures/flowgenx_ai_logo.png, id=417, 200.75pt x 200.75pt>
+Package pdftex.def Info: figures/sust.png  used on input line 6.
+(pdftex.def)             Requested size: 203.4788pt x 224.83847pt.
+<figures/flowgenx_ai_logo.png, id=381, 200.75pt x 200.75pt>
 File: figures/flowgenx_ai_logo.png Graphic file (type png)
 <use figures/flowgenx_ai_logo.png>
-Package pdftex.def Info: figures/flowgenx_ai_logo.png  used on input line 23.
-(pdftex.def)             Requested size: 90.33665pt x 90.33665pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 28.
+Package pdftex.def Info: figures/flowgenx_ai_logo.png  used on input line 24.
+(pdftex.def)             Requested size: 156.58435pt x 156.58435pt.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 29.
  (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 28.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 29.
  (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 28.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 29.
  (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 28.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 29.
  (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 28.
+(Font)              <12> on input line 29.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 28.
+(Font)              <8> on input line 29.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 28.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
+(Font)              <6> on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
  (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
  (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [2 <./figures/flowgenx_ai_logo.png>])
+) [1
+
+
+{C:/Users/Rakib/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./figures/sust.png> <./figures/flowgenx_ai_logo.png>])
 \openout2 = `extra/transmittal.aux'.
 
  (extra/transmittal.tex
@@ -674,12 +668,7 @@ l.59 \newpage
 ])
 \openout2 = `extra/endorsement.aux'.
 
- (extra/endorsement.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.84 \newpage
-              [2
+ (extra/endorsement.tex [2
 
 
 
@@ -703,17 +692,11 @@ l.84 \newpage
 
 
 
-] [2] [3])
+] [2])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [4] (main.lof)
-\tf@lof=\write5
-\openout5 = `main.lof'.
-
- [5
-
-]
+ [3]
 \openout2 = `chapters/introduction.aux'.
 
  (chapters/introduction.tex
@@ -722,8 +705,8 @@ Chapter 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 
-      [1
+l.59     \item \textbf
+                      {Understanding modern startup engineering culture.} [1
 
 
 ]
@@ -734,88 +717,100 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.92 
-      [2{C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+l.126 
+       [2{C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}])
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.144 \end{itemize}
-                    [3])
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.36 \include{chapters/introduction}
-                                     [4]
+l.34 \include{chapters/introduction}
+                                     [3]
 \openout2 = `chapters/company_profile.aux'.
 
  (chapters/company_profile.tex
 Chapter 2.
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.64 \end{quote}
+                 [4
+
+
+
+
+]
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 
-      [5
-
-
-
-
-] [6]
-<figures/screenshots/workflow_editor.jpg, id=615, 1152.10425pt x 555.87675pt>
+l.121 
+       [5]
+<figures/screenshots/workflow_editor.jpg, id=551, 1152.10425pt x 555.87675pt>
 File: figures/screenshots/workflow_editor.jpg Graphic file (type jpg)
 <use figures/screenshots/workflow_editor.jpg>
-Package pdftex.def Info: figures/screenshots/workflow_editor.jpg  used on input line 133.
-(pdftex.def)             Requested size: 430.31812pt x 207.62202pt.
- [7] [8 <./figures/screenshots/workflow_editor.jpg>] [9] [10] [11] [12] [13]
-Overfull \hbox (1.16833pt too wide) in paragraph at lines 390--395
-[]\T1/lmr/bx/n/12 (-20) Databases. \T1/lmr/m/n/12 (-20) Re-la-tional en-gines (Post-greSQL, MySQL, Mi-crosoft SQL Server, Snowflake,
- []
-
-[14] [15]
-Overfull \hbox (31.03395pt too wide) in paragraph at lines 458--470
+Package pdftex.def Info: figures/screenshots/workflow_editor.jpg  used on input line 141.
+(pdftex.def)             Requested size: 371.04778pt x 179.02078pt.
+ [6 <./figures/screenshots/workflow_editor.jpg>] [7] [8] [9] [10] [11]
+Overfull \hbox (20.1939pt too wide) in paragraph at lines 445--457
 \T1/lmtt/m/n/12 IngestionComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 FilterComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 DataMappingComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 DataPrivacyComponent
  []
 
 
-Overfull \hbox (74.37392pt too wide) in paragraph at lines 458--470
-\T1/lmr/m/n/12 (-20) email, and other PII), \T1/lmtt/m/n/12 WriteComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 JoinerComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 HTTPNodeComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 ForeachComponent\T1/lmr/m/n/12 (-20) ,
+Overfull \hbox (30.59435pt too wide) in paragraph at lines 445--457
+\T1/lmr/m/n/12 (-20) and other PII), \T1/lmtt/m/n/12 WriteComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 JoinerComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 HTTPNodeComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 ForeachComponent\T1/lmr/m/n/12 (-20) ,
  []
 
-[16]
-Overfull \hbox (55.8071pt too wide) in paragraph at lines 526--530
+[12]
+Overfull \hbox (5.0974pt too wide) in paragraph at lines 480--484
+[]\T1/lmr/bx/n/12 (-20) Working hours. \T1/lmr/m/n/12 (-20) I gen-er-ally worked from ap-prox-i-mately 9:00a.m. to 5:00p.m. Bangladesh
+ []
+
+
+Overfull \hbox (44.96704pt too wide) in paragraph at lines 514--518
 []\T1/lmr/bx/n/12 (-20) Continuous learn-ing. \T1/lmr/m/n/12 (-20) The com-pany main-tains an ex-ten-sive blog (\T1/lmtt/m/n/12 https://blog.flowgenx.ai/\T1/lmr/m/n/12 (-20) )
  []
 
-) [17]
+) [13]
 \openout2 = `chapters/methodology.aux'.
 
  (chapters/methodology.tex
 Chapter 3.
-[18
+[14
 
 
 
 
-] [19]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 94.
-
-Overfull \hbox (68.77873pt too wide) in paragraph at lines 100--106
-[]\T1/lmtt/m/n/12 DBManager \T1/lmr/m/n/12 (-20) --- adds stan-dard database op-er-a-tions (\T1/lmtt/m/n/12 _list_tables\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 _read_table_as_dataframe\T1/lmr/m/n/12 (-20) ,
+]
+Overfull \hbox (9.38158pt too wide) in paragraph at lines 88--112
+\T1/lmr/m/n/12 (-20) a stan-dard-ised three-tier ar-chi-tec-ture. \T1/lmr/bx/n/12 (-20) Base man-agers \T1/lmr/m/n/12 (-20) (de-fined once in \T1/lmtt/m/n/12 connectors/base.py\T1/lmr/m/n/12 (-20) )
  []
 
 
-Overfull \hbox (24.71739pt too wide) in paragraph at lines 100--106
-\T1/lmtt/m/n/12 _execute_query_to_database\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 _write_table_to_dataframe\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 _get_table_schema\T1/lmr/m/n/12 (-20) ). 
+Overfull \hbox (45.04291pt too wide) in paragraph at lines 88--112
+\T1/lmr/m/n/12 (-20) tional databases (with \T1/lmtt/m/n/12 _list_tables\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 _read_table_as_dataframe\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 _execute_query_to_database\T1/lmr/m/n/12 (-20) ,
  []
 
 
-Overfull \hbox (8.91722pt too wide) in paragraph at lines 126--129
-[]\T1/lmtt/m/n/12 specs/ \T1/lmr/m/n/12 (-20) (for newer con-nec-tors) holds the auto-generated \T1/lmtt/m/n/12 connector_metadata.json\T1/lmr/m/n/12 (-20) ,
+Overfull \hbox (19.06888pt too wide) in paragraph at lines 88--112
+\T1/lmtt/m/n/12 _write_table_to_dataframe\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 _get_table_schema\T1/lmr/m/n/12 (-20) ); \T1/lmtt/m/n/12 FSManager \T1/lmr/m/n/12 (-20) for file sys-tems (\T1/lmtt/m/n/12 _list_files\T1/lmr/m/n/12 (-20) ,
  []
 
-[20]
-Overfull \hbox (16.87457pt too wide) in paragraph at lines 180--185
+
+Overfull \hbox (25.4057pt too wide) in paragraph at lines 88--112
+\T1/lmr/m/n/12 (-20) with the auto-generated meta-data. Fi-nally, the \T1/lmr/bx/n/12 (-20) con-nec-tor reg-istry \T1/lmr/m/n/12 (-20) in \T1/lmtt/m/n/12 connectors/__init__.py
+ []
+
+
+Overfull \hbox (63.2036pt too wide) in paragraph at lines 113--123
+\T1/lmr/m/n/12 (-20) chronous and asyn-chronous callers, all meth-ods are wrapped through \T1/lmtt/m/n/12 dual_method_support_from_async
+ []
+
+
+Overfull \hbox (6.41937pt too wide) in paragraph at lines 113--123
+\T1/lmr/m/n/12 (-20) (used in-side FastAPI han-dlers and other async con-texts) or \T1/lmtt/m/n/12 dual_method_support_from_sync
+ []
+
+[15]
+Overfull \hbox (6.03452pt too wide) in paragraph at lines 151--156
 [] []\T1/lmr/bx/n/12 (-20) Unit and con-tract tests.[] \T1/lmr/m/n/12 (-20) Each con-nec-tor ships with \T1/lmtt/m/n/12 tests/connectors/test_<name>.py\T1/lmr/m/n/12 (-20) .
  []
 
@@ -823,184 +818,164 @@ Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (44.95741pt too wide) in paragraph at lines 187--196
+Overfull \hbox (34.11736pt too wide) in paragraph at lines 158--167
 \T1/lmr/m/n/12 (-20) wrote a ded-i-cated in-te-gra-tion test script un-der \T1/lmtt/m/n/12 scripts/ \T1/lmr/m/n/12 (-20) named \T1/lmtt/m/n/12 test_<connector>_connector.py\T1/lmr/m/n/12 (-20) .
  []
 
-[21]
-<figures/screenshots/MCP_playground.jpg, id=694, 1149.69525pt x 555.87675pt>
+<figures/screenshots/MCP_playground.jpg, id=604, 1149.69525pt x 555.87675pt>
 File: figures/screenshots/MCP_playground.jpg Graphic file (type jpg)
 <use figures/screenshots/MCP_playground.jpg>
-Package pdftex.def Info: figures/screenshots/MCP_playground.jpg  used on input line 208.
-(pdftex.def)             Requested size: 430.31812pt x 208.05461pt.
- [22 <./figures/screenshots/MCP_playground.jpg>]
-Overfull \hbox (89.19193pt too wide) in paragraph at lines 255--260
+Package pdftex.def Info: figures/screenshots/MCP_playground.jpg  used on input line 179.
+(pdftex.def)             Requested size: 371.04778pt x 179.39398pt.
+[16] [17 <./figures/screenshots/MCP_playground.jpg>]
+Overfull \hbox (78.35187pt too wide) in paragraph at lines 234--239
 []\T1/lmr/m/n/12 (-20) Errors raised in-side a con-nec-tor use \T1/lmtt/m/n/12 ConnectionExecutionError \T1/lmr/m/n/12 (-20) (from \T1/lmtt/m/n/12 runtime_connectivity.errors\T1/lmr/m/n/12 (-20) )
  []
 
-
-Overfull \hbox (2.6304pt too wide) in paragraph at lines 260--264
-[]\T1/lmr/m/n/12 (-20) Logging goes through the struc-tured \T1/lmtt/m/n/12 app_logger \T1/lmr/m/n/12 (-20) from \T1/lmtt/m/n/12 runtime_connectivity.logger\T1/lmr/m/n/12 (-20) ,
- []
-
-) [23]
+) [18]
 \openout2 = `chapters/internship_activities.aux'.
 
  (chapters/internship_activities.tex
 Chapter 4.
-
-Overfull \hbox (6.66406pt too wide) in paragraph at lines 1--1
-|\T1/lmr/bx/n/24.88 (-20) Internship Ac-tiv-i-ties and Project Work| 
- []
-
-[24
+[19
 
 
 
 
 ]
-Overfull \hbox (19.63257pt too wide) in paragraph at lines 76--81
+Overfull \hbox (8.79251pt too wide) in paragraph at lines 76--81
 []\T1/lmr/m/n/12 (-20) Cloning the four repos-i-to-ries (\T1/lmtt/m/n/12 flowgenx-nextjs-V2\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 runtime_apis\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 runtime_components\T1/lmr/m/n/12 (-20) ,
  []
 
-[25]
-Overfull \hbox (13.68272pt too wide) in paragraph at lines 95--104
+
+Overfull \hbox (32.67297pt too wide) in paragraph at lines 88--92
+\T1/lmr/m/n/12 (-20) the Swag-ger UI (\T1/lmtt/m/n/12 http://localhost:8081/docs\T1/lmr/m/n/12 (-20) ) and the Air-flow UI (\T1/lmtt/m/n/12 http://localhost:8080\T1/lmr/m/n/12 (-20) )
+ []
+
+
+Overfull \hbox (2.84267pt too wide) in paragraph at lines 95--104
 \T1/lmr/m/n/12 (-20) ab-strac-tion (\T1/lmtt/m/n/12 BaseManager \TS1/lmr/m/n/12 (-20) ^^Y \T1/lmtt/m/n/12 DBManager\T1/lmr/m/n/12 (-20) /\T1/lmtt/m/n/12 FSManager\T1/lmr/m/n/12 (-20) /\T1/lmtt/m/n/12 ObjManager\T1/lmr/m/n/12 (-20) ), the \T1/lmtt/m/n/12 @openapi_endpoint
  []
 
-
-Overfull \hbox (59.38504pt too wide) in paragraph at lines 113--116
+[20]
+Overfull \hbox (48.54498pt too wide) in paragraph at lines 113--116
 []\T1/lmr/m/n/12 (-20) Auto-generated meta-data (\T1/lmtt/m/n/12 openapi_spec.json\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 auth_config.json\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 connector_metadata.json\T1/lmr/m/n/12 (-20) ). 
  []
 
-[26]
-Overfull \hbox (19.5032pt too wide) in paragraph at lines 154--161
+
+Overfull \hbox (8.66315pt too wide) in paragraph at lines 154--161
 \T1/lmr/m/n/12 (-20) The re-main-ing five months of the in-tern-ship were spent con-tribut-ing to \T1/lmtt/m/n/12 runtime_connectivity
  []
 
-
-Overfull \hbox (39.64491pt too wide) in paragraph at lines 169--172
-[]\T1/lmr/bx/n/12 (-20) Branch. \T1/lmr/m/n/12 (-20) Cre-ate a fea-ture branch named for the con-nec-tor (for ex-am-ple, \T1/lmtt/m/n/12 wordpress-connector\T1/lmr/m/n/12 (-20) ,
- []
-
-[27]
-Overfull \hbox (11.1594pt too wide) in paragraph at lines 192--197
-[]\T1/lmr/bx/n/12 (-20) Metadata gen-er-a-tion. \T1/lmr/m/n/12 (-20) Run \T1/lmtt/m/n/12 generate_openapi_spec.py\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 generate_auth_config.py\T1/lmr/m/n/12 (-20) ,
- []
-
-<figures/screenshots/Auth_config.jpg, id=728, 1150.89975pt x 557.6835pt>
+[21]
+<figures/screenshots/Auth_config.jpg, id=638, 1150.89975pt x 557.6835pt>
 File: figures/screenshots/Auth_config.jpg Graphic file (type jpg)
 <use figures/screenshots/Auth_config.jpg>
-Package pdftex.def Info: figures/screenshots/Auth_config.jpg  used on input line 218.
-(pdftex.def)             Requested size: 430.31812pt x 208.5181pt.
-[28] [29 <./figures/screenshots/Auth_config.jpg>]
-Overfull \vbox (213.044pt too high) has occurred while \output is active []
+Package pdftex.def Info: figures/screenshots/Auth_config.jpg  used on input line 200.
+(pdftex.def)             Requested size: 371.04778pt x 179.79836pt.
+ [22 <./figures/screenshots/Auth_config.jpg>]
+Overfull \vbox (176.86389pt too high) has occurred while \output is active []
 
- [30] [31]
-<figures/screenshots/APP_gallery.jpg, id=760, 1150.89975pt x 557.08125pt>
+ [23]
+<figures/screenshots/APP_gallery.jpg, id=654, 1150.89975pt x 557.08125pt>
 File: figures/screenshots/APP_gallery.jpg Graphic file (type jpg)
 <use figures/screenshots/APP_gallery.jpg>
-Package pdftex.def Info: figures/screenshots/APP_gallery.jpg  used on input line 321.
-(pdftex.def)             Requested size: 430.31812pt x 208.29292pt.
-<figures/screenshots/Connected_apps.jpg, id=761, 1149.69525pt x 555.2745pt>
+Package pdftex.def Info: figures/screenshots/APP_gallery.jpg  used on input line 254.
+(pdftex.def)             Requested size: 371.04778pt x 179.6042pt.
+<figures/screenshots/Connected_apps.jpg, id=655, 1149.69525pt x 555.2745pt>
 File: figures/screenshots/Connected_apps.jpg Graphic file (type jpg)
 <use figures/screenshots/Connected_apps.jpg>
-Package pdftex.def Info: figures/screenshots/Connected_apps.jpg  used on input line 329.
-(pdftex.def)             Requested size: 430.31812pt x 207.82921pt.
- [32 <./figures/screenshots/APP_gallery.jpg>] [33 <./figures/screenshots/Connected_apps.jpg>] [34]
-<figures/screenshots/paricular_connector_endpoint_test.jpg, id=774, 1143.0705pt x 551.661pt>
+Package pdftex.def Info: figures/screenshots/Connected_apps.jpg  used on input line 262.
+(pdftex.def)             Requested size: 371.04778pt x 179.19963pt.
+ [24 <./figures/screenshots/APP_gallery.jpg> <./figures/screenshots/Connected_apps.jpg>]
+<figures/screenshots/paricular_connector_endpoint_test.jpg, id=662, 1143.0705pt x 551.661pt>
 File: figures/screenshots/paricular_connector_endpoint_test.jpg Graphic file (type jpg)
 <use figures/screenshots/paricular_connector_endpoint_test.jpg>
-Package pdftex.def Info: figures/screenshots/paricular_connector_endpoint_test.jpg  used on input line 433.
-(pdftex.def)             Requested size: 430.31812pt x 207.67204pt.
-
-Overfull \hbox (64.83876pt too wide) in paragraph at lines 444--452
-[]\T1/lmr/bx/n/12 (-20) Branch hy-giene. \T1/lmr/m/n/12 (-20) Ev-ery con-nec-tor was de-vel-oped on its own fea-ture branch (\T1/lmtt/m/n/12 wordpress-connector\T1/lmr/m/n/12 (-20) ,
+Package pdftex.def Info: figures/screenshots/paricular_connector_endpoint_test.jpg  used on input line 330.
+(pdftex.def)             Requested size: 371.04778pt x 179.06883pt.
+ [25]
+Overfull \hbox (9.84866pt too wide) in paragraph at lines 336--353
+\T1/lmr/m/n/12 (-20) (\T1/lmtt/m/n/12 wordpress-connector\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 Harness_connector\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 MySQL-connector\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 Google-Forms-connector\T1/lmr/m/n/12 (-20) ,
  []
 
 
-Overfull \hbox (38.77444pt too wide) in paragraph at lines 444--452
-\T1/lmtt/m/n/12 freshbooks-connector\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 Harness_connector\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 MySQL-connector\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 Google-Forms-connector\T1/lmr/m/n/12 (-20) ,
+Overfull \hbox (63.88884pt too wide) in paragraph at lines 354--367
+\T1/lmtt/m/n/12 DataPrivacyComponent \T1/lmr/m/n/12 (-20) with PII mask-ing, \T1/lmtt/m/n/12 JoinerComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 HTTPNodeComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 ForeachComponent\T1/lmr/m/n/12 (-20) ,
  []
 
-[35 <./figures/screenshots/paricular_connector_endpoint_test.jpg>]
-Overfull \hbox (33.46773pt too wide) in paragraph at lines 461--467
-\T1/lmtt/m/n/12 generate_openapi_spec.py\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 generate_auth_config.py\T1/lmr/m/n/12 (-20) , and \T1/lmtt/m/n/12 populate_connector_db.py
- []
-
-
-Overfull \hbox (41.80418pt too wide) in paragraph at lines 492--499
-\T1/lmr/m/n/12 (-20) PII mask-ing), \T1/lmtt/m/n/12 JoinerComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 HTTPNodeComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 ForeachComponent\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 SwitchComponent\T1/lmr/m/n/12 (-20) ,
- []
-
-[36]) [37]
+) [26 <./figures/screenshots/paricular_connector_endpoint_test.jpg>]
 \openout2 = `chapters/skills.aux'.
 
  (chapters/skills.tex
 Chapter 5.
-[38
-
-
-
-
-] [39] [40] [41] [42] [43]) [44]
-\openout2 = `chapters/life.aux'.
-
- (chapters/life.tex
-Chapter 6.
-[45
-
-
-
-
-] [46] [47]
-Overfull \hbox (107.9662pt too wide) in paragraph at lines 156--162
-[]\T1/lmr/m/n/12 (-20) Beyond di-rect men-tor-ship, the com-pany main-tains an ac-tive en-gi-neer-ing blog (\T1/lmtt/m/n/12 https://blog.flowgenx.ai/\T1/lmr/m/n/12 (-20) )
- []
-
-) [48] [49]
-\openout2 = `chapters/conclusion.aux'.
-
- (chapters/conclusion.tex
-Chapter 7.
-[50
-
-
-
-
-]) [51]
-\openout2 = `chapters/references.aux'.
-
- (chapters/references.tex [52
+[27
 
 
 
 
 ]
-Overfull \hbox (54.31485pt too wide) in paragraph at lines 43--48
+Overfull \hbox (9.8151pt too wide) in paragraph at lines 109--128
+\T1/lmr/m/n/12 (-20) FlowGenX is com-posed of mul-ti-ple co-op-er-at-ing ser-vices (\T1/lmtt/m/n/12 flowgenx-nextjs-V2\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 runtime_apis\T1/lmr/m/n/12 (-20) ,
+ []
+
+[28] [29]) [30]
+\openout2 = `chapters/life.aux'.
+
+ (chapters/life.tex
+Chapter 6.
+[31
+
+
+
+
+] [32]
+Overfull \hbox (97.12614pt too wide) in paragraph at lines 156--162
+[]\T1/lmr/m/n/12 (-20) Beyond di-rect men-tor-ship, the com-pany main-tains an ac-tive en-gi-neer-ing blog (\T1/lmtt/m/n/12 https://blog.flowgenx.ai/\T1/lmr/m/n/12 (-20) )
+ []
+
+[33]) [34]
+\openout2 = `chapters/conclusion.aux'.
+
+ (chapters/conclusion.tex
+Chapter 7.
+) [35
+
+
+
+
+]
+\openout2 = `chapters/references.aux'.
+
+ (chapters/references.tex
+Overfull \hbox (43.4748pt too wide) in paragraph at lines 43--48
 []\T1/lmr/m/n/12 (-20) Internal doc-u-men-ta-tion of the \T1/lmtt/m/n/12 runtime_connectivity\T1/lmr/m/n/12 (-20) , \T1/lmtt/m/n/12 runtime_apis\T1/lmr/m/n/12 (-20) , and \T1/lmtt/m/n/12 runtime_components
  []
 
-) [53] (main.aux (chapters/titlepage.aux) (extra/transmittal.aux) (extra/endorsement.aux) (chapters/acknowledgement.aux) (chapters/executive_summary.aux) (chapters/introduction.aux) (chapters/company_profile.aux) (chapters/methodology.aux) (chapters/internship_activities.aux) (chapters/skills.aux) (chapters/life.aux) (chapters/conclusion.aux) (chapters/references.aux))
+) [36
+
+
+
+
+] (main.aux (chapters/titlepage.aux) (extra/transmittal.aux) (extra/endorsement.aux) (chapters/acknowledgement.aux) (chapters/executive_summary.aux) (chapters/introduction.aux) (chapters/company_profile.aux) (chapters/methodology.aux) (chapters/internship_activities.aux) (chapters/skills.aux) (chapters/life.aux) (chapters/conclusion.aux) (chapters/references.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7E7EB4E3DD71AB07658B12350F71DDA3;19193.
+(rerunfilecheck)             Checksum: 215418C6D2122E14E5F10DFBE4660364;17872.
  ) 
 Here is how much of TeX's memory you used:
- 18293 strings out of 467690
- 301039 string characters out of 5414967
- 747982 words of memory out of 5000000
- 46542 multiletter control sequences out of 15000+600000
- 688532 words of font info for 197 fonts, out of 8000000 for 9000
+ 18216 strings out of 467690
+ 300206 string characters out of 5414967
+ 749128 words of memory out of 5000000
+ 46529 multiletter control sequences out of 15000+600000
+ 687687 words of font info for 190 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,12n,82p,1047b,670s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (65 pages, 2002661 bytes).
+ 80i,12n,82p,1047b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Rakib/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on main.pdf (45 pages, 1938158 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 224 named destinations out of 1000 (max. 500000)
- 32593 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 800 PDF objects out of 1000 (max. 8388607)
+ 176 named destinations out of 1000 (max. 500000)
+ 32025 words of extra memory for PDF output out of 35830 (max. 10000000)
 

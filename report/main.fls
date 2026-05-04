@@ -247,8 +247,6 @@ INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr17.
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr12.tfm
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
-INPUT C:\Users\Rakib\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ec.enc
 INPUT .\figures\flowgenx_ai_logo.png
 INPUT .\figures\flowgenx_ai_logo.png
 INPUT .\figures\flowgenx_ai_logo.png
@@ -297,6 +295,8 @@ INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msb.cf
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbx12.tfm
+INPUT C:\Users\Rakib\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-ec.enc
 INPUT .\extra\transmittal.tex
 INPUT .\extra\transmittal.tex
 OUTPUT extra\transmittal.aux
@@ -333,10 +333,6 @@ INPUT .\main.toc
 INPUT .\main.toc
 INPUT main.toc
 OUTPUT main.toc
-INPUT .\main.lof
-INPUT .\main.lof
-INPUT main.lof
-OUTPUT main.lof
 INPUT .\chapters\introduction.tex
 INPUT .\chapters\introduction.tex
 OUTPUT chapters\introduction.aux
@@ -367,7 +363,6 @@ OUTPUT chapters\methodology.aux
 INPUT .\chapters\methodology.tex
 INPUT .\chapters\methodology.tex
 INPUT chapters\methodology.tex
-INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtk10.tfm
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmcsc10.tfm
 INPUT .\figures\screenshots\MCP_playground.jpg
 INPUT .\figures\screenshots\MCP_playground.jpg
@@ -486,7 +481,5 @@ INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.p
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmri12.pfb
-INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
-INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb
 INPUT C:\Users\Rakib\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt12.pfb

@@ -13,12 +13,12 @@ internal documentation and from my own day-to-day experience working
 inside the process for five and a half months.
 
 \section{Development Methodology}
-FlowGenX AI follows a modern agile-inspired engineering process that
-combines lightweight planning, asynchronous communication, and
-continuous integration. Work is tracked on a \emph{ClickUp} board
-where each connector or feature is represented as a card with status,
-assignee, and links to the corresponding feature branch and pull
-request. Tasks move through a typical kanban-style flow ---
+FlowGenX AI follows a hybrid engineering process that combines
+\textbf{Scrum} and \textbf{Kanban} practices, organised around a
+\textbf{weekly sprint cadence}. Work is tracked on a \emph{ClickUp}
+board where each connector or feature is represented as a card with
+status, assignee, and links to the corresponding feature branch and
+pull request. Tasks move through a typical kanban-style flow ---
 \emph{To Do}, \emph{In Progress}, \emph{In Review},
 \emph{Implemented}, \emph{API Tested}, \emph{MCP Playground Tested},
 and \emph{Workflow Tested} --- giving the team end-to-end visibility
@@ -87,71 +87,39 @@ artefacts: the \texttt{ConnParams} Pydantic schema, the
 \subsection{Implementation (the Development Cycle)}
 A new connector lives under
 \texttt{src/runtime\_connectivity/connectors/<name>/} and follows a
-standardised three-tier architecture:
+standardised three-tier architecture. \textbf{Base managers}
+(defined once in \texttt{connectors/base.py}) provide the abstract
+\texttt{BaseManager} foundation plus three concrete bases:
+\texttt{DBManager} for relational databases (with
+\texttt{\_list\_tables}, \texttt{\_read\_table\_as\_dataframe},
+\texttt{\_execute\_query\_to\_database},
+\texttt{\_write\_table\_to\_dataframe},
+\texttt{\_get\_table\_schema}); \texttt{FSManager} for file systems
+(\texttt{\_list\_files}, \texttt{\_read\_file},
+\texttt{\_write\_file}, \texttt{\_delete\_file}); and
+\texttt{ObjManager} as the catch-all base for object/API-based
+connectors. The \textbf{connector implementation} layer adds an
+\texttt{\_\_init\_\_.py} that exposes the connector's
+\texttt{ConnParams} Pydantic model, its \texttt{Manager} class, and
+its per-method modules; per-method files (for example
+\texttt{create\_customer.py}) decorated with
+\texttt{@openapi\_endpoint}; a \texttt{test\_connection.py}; and
+(for newer connectors) a \texttt{specs/} folder with the
+auto-generated metadata. Finally, the \textbf{connector registry}
+in \texttt{connectors/\_\_init\_\_.py} wraps registration in a
+\texttt{try}/\texttt{except} so a single broken connector cannot
+break the package import for everyone else.
 
-\begin{enumerate}[leftmargin=*]
-    \item \textbf{Base managers (defined once in
-    \texttt{connectors/base.py}):}
-    \begin{itemize}
-        \item \texttt{BaseManager} --- abstract foundation that
-        defines \texttt{test\_connection}, \texttt{\_connect},
-        \texttt{\_close}, and method introspection helpers used by
-        the runtime to discover what a connector can do.
-        \item \texttt{DBManager} --- adds standard database
-        operations (\texttt{\_list\_tables},
-        \texttt{\_read\_table\_as\_dataframe},
-        \texttt{\_execute\_query\_to\_database},
-        \texttt{\_write\_table\_to\_dataframe},
-        \texttt{\_get\_table\_schema}).
-        \item \texttt{FSManager} --- adds standard file-system
-        operations (\texttt{\_list\_files}, \texttt{\_read\_file},
-        \texttt{\_write\_file}, \texttt{\_delete\_file}).
-        \item \texttt{ObjManager} --- the catch-all base class for
-        object/API-based connectors (Salesforce, HubSpot, Stripe,
-        and so on), where each connector defines its own custom
-        methods.
-    \end{itemize}
-
-    \item \textbf{Connector implementation:}
-    \begin{itemize}
-        \item \texttt{\_\_init\_\_.py} exposes the connector's
-        \texttt{ConnParams} Pydantic model, the \texttt{Manager}
-        class, and the per-method imports.
-        \item Individual method files (for example
-        \texttt{create\_customer.py}) are decorated with
-        \texttt{@openapi\_endpoint} and contain the business logic
-        for that single endpoint.
-        \item \texttt{test\_connection.py} validates that credentials
-        actually work against the live API.
-        \item \texttt{specs/} (for newer connectors) holds the
-        auto-generated \texttt{connector\_metadata.json},
-        \texttt{openapi\_spec.json}, and \texttt{auth\_config.json}.
-    \end{itemize}
-
-    \item \textbf{Connector registry:} every connector is registered
-    in \texttt{connectors/\_\_init\_\_.py}, and the registry build
-    is wrapped in a \texttt{try}/\texttt{except} so that a single
-    broken connector cannot break the package import for everyone
-    else.
-\end{enumerate}
-
-Every public method on a connector must be decorated with
-\texttt{@openapi\_endpoint}. The decorator attaches OpenAPI metadata
-(HTTP method, path, summary, parameters, request schema, response
-schema, tags) that the platform later consumes to render the UI form
-that end users see.
-
-To support both synchronous and asynchronous callers, all connector
-methods are wrapped using two utilities defined in
-\texttt{runtime\_connectivity.utils}:
-
-\begin{itemize}[leftmargin=*]
-    \item \texttt{await dual\_method\_support\_from\_async(method, *args)}
-    is used inside FastAPI handlers and other async contexts.
-    \item \texttt{dual\_method\_support\_from\_sync(method, *args)} is
-    used outside event loops and intentionally raises a
-    \texttt{RuntimeError} if called from inside one.
-\end{itemize}
+Every public method must be decorated with
+\texttt{@openapi\_endpoint}, which attaches the OpenAPI metadata
+(HTTP method, path, summary, parameters, request and response
+schema, tags) that the platform later consumes to render the UI
+form. To support both synchronous and asynchronous callers, all
+methods are wrapped through
+\texttt{dual\_method\_support\_from\_async} (used inside FastAPI
+handlers and other async contexts) or
+\texttt{dual\_method\_support\_from\_sync} (used outside event loops;
+raises if called from inside one).
 
 \subsection{Code Review and Pull Requests}
 Once a connector is implementation-complete, I would push the feature
@@ -164,7 +132,10 @@ Sanjib). Reviewers comment line-by-line, request changes when the
 \texttt{ConnParams} schema needs more validation, when an OpenAPI
 example is missing, or when the test coverage is insufficient. A
 typical PR goes through one or two rounds of review before being
-merged.
+merged. The team operates a \textbf{two-branch pull-request flow}:
+feature branches are reviewed and merged into the development
+branch, and a second pull-request flow promotes changes from the
+development branch into the production branch.
 
 When a teammate's changes had landed in \texttt{dev} between the time
 I branched and the time I was ready to merge, I would rebase or
@@ -205,19 +176,24 @@ confirm it actually composes inside a real end-to-end workflow
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.95\textwidth]{figures/screenshots/MCP_playground.jpg}
+    \includegraphics[width=0.8\textwidth]{figures/screenshots/MCP_playground.jpg}
     \caption{MCP Playground for end-to-end testing of connector tools.}
     \label{fig:mcp-playground}
 \end{figure}
 
-\subsection{Deployment to Development, Staging, and Production}
-After a pull request is merged into \texttt{dev}, the change is
-deployed to a development environment, where the team performs API
-testing and end-to-end workflow validation. Once stable, the change
-is promoted to a staging environment that mirrors production, and
-finally to production. The platform itself is containerised with
-Docker and orchestrated with Kubernetes, with infrastructure
-provisioned through Helm charts and Terraform.
+\subsection{Deployment to Development and Production}
+The platform currently uses two environments, \texttt{Dev} and
+\texttt{Prod}, with continuous-deployment pipelines built on
+\textbf{GitHub} and \textbf{ArgoCD}. After a pull request is merged
+into the \texttt{dev} branch, the change is deployed to the
+development environment, where the team performs API testing and
+end-to-end workflow validation. Promotion to production goes through
+a second pull-request flow into the production branch and is
+typically rolled out on \textbf{Saturdays} once the release is deemed
+stable. Validation activities ahead of each rollout are continually
+being strengthened as the engineering team grows. The platform itself
+is containerised with Docker and orchestrated with Kubernetes, with
+infrastructure provisioned through Helm charts and Terraform.
 
 \subsection{Hotfixes}
 Urgent production bugs are addressed outside the normal sprint
@@ -239,7 +215,10 @@ least one approval is required before merging. Python environments
 are managed with \textbf{uv} (\texttt{uv pip install -e ".[dev]"});
 runtime services are containerised with \textbf{Docker} and
 orchestrated with \textbf{Kubernetes} (packaged via \textbf{Helm} and
-provisioned via \textbf{Terraform}). API specifications are
+provisioned via \textbf{Terraform}); continuous deployment is driven
+by \textbf{GitHub} and \textbf{ArgoCD} into the platform's two-tier
+\texttt{Dev}/\texttt{Prod} environment topology, with production
+rollouts performed weekly on Saturdays. API specifications are
 \textbf{OpenAPI 3.0}, auto-generated from the
 \texttt{@openapi\_endpoint}-decorated source code through
 \texttt{generate\_openapi\_spec.py}. The team communicates through
